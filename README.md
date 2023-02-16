@@ -40,7 +40,7 @@
 https://www.figma.com/file/dEzBkqlSeBIRtgNIopej9O/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0%3A1&t=QCHgkp64tMz9pOJv-1
 
 ## ■ER図
-https://i.gyazo.com/5cc532bbfb07ca7b76eb76f2055df379.png
+https://i.gyazo.com/98b417466596fb8cb8b293f54041d497.png
 
 ## ■スケジュール
 README〜ER図作成：2/16 〆切
