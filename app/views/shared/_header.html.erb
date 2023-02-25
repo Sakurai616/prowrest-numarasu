@@ -4,8 +4,7 @@
       <%= link_to "Prowrest Numarasu", root_path, class: "btn btn-accent" %>
     </div>
     <div class="navbar-end">
-      <%= link_to "ログイン", login_path, class: "btn btn-accent" %>
-      <%= link_to "新規登録", new_user_path, class: "btn btn-accent" %>
+      <%= button_to "ログアウト", logout_path, method: :delete, class: "btn btn-accent" %>
     </div>
   </div>
 </header>
