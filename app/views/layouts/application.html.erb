@@ -11,7 +11,11 @@
   </head>
 
   <body>
-    <%= render partial: 'shared/before_login_header' %>
+    <% if logged_in? %>
+      <%= render partial: 'shared/header' %>
+    <% else %>
+      <%= render partial: 'shared/before_login_header' %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
