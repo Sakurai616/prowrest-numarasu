@@ -1,0 +1,12 @@
+ja:
+  defaults:
+    prowrest-numarasu: "Prowrest Numarasu" 
+    login: "ログイン"
+    logout: "ログアウト"
+    register: "新規登録"
+  users:
+    new:
+      title: "ユーザー登録"
+  user_sessions:
+    new:
+      title: "ログイン"
