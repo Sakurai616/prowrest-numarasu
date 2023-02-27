@@ -4,7 +4,19 @@
       <%= link_to t('defaults.prowrest-numarasu'), root_path, class: "btn btn-accent" %>
     </div>
     <div class="navbar-end">
-      <%= button_to t('defaults.logout'), logout_path, method: :delete, class: "btn btn-accent" %>
+      <div class="dropdown dropdown-hover dropdown-end">
+        <div class="btn btn-ghost normal-case rounded-full">
+        <%= image_tag current_user.avatar_url, size: '50x50', class: 'rounded-circle mr15' %>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+          <li class="btn btn-primary">
+            <div class="dropdown-item"><%= current_user.name %></div>
+          </li>
+          <li>
+            <%= link_to t('defaults.logout'), logout_path, method: :delete, class: "btn btn-accent" %>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </header>

@@ -6,6 +6,7 @@ ja:
       user:
         name: "ユーザーネーム"
         email: "メールアドレス"
+        avatar: "アバター"
         password: "パスワード"
         password_confirmation: "パスワード確認"
         avatar: "アバター"
