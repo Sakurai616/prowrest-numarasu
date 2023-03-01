@@ -6,6 +6,7 @@ ja:
     register: "新規登録"
     post: "投稿"
     index: "投稿一覧"
+    new: "投稿作成"
     show: "投稿詳細"
     edit: "投稿編集"
     update: "更新"
