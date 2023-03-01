@@ -1,0 +1,23 @@
+<div class="bg-stone-100 p-4 m-4">
+  <div class="py-6 sm:py-8 lg:py-12">
+    <h2 class="text-accent-content text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6 text-accent text-primary-focus md:text-lg font-bold"><%= t '.title' %></h2>
+    <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
+      <div class="card max-w-xl border rounded-xl mx-auto">
+          <%= image_tag @post.image_url %>
+        <% if @post.url.present? %>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @post.url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <% end %>
+        <div class="card-body text-accent-content">
+          <h3 class="text-primary text-primary-focus md:text-lg font-bold"><%= @post.title %></h2>
+          <p class="text-primary text-primary-focus md:text-lg font-bold"><%= @post.user.name %></p>
+          <p><%= simple_format(@post.body) %></p>
+          <p class="flex justify-end mb-4 text-primary text-primary-focus md:text-lg font-bold"><%= I18n.l(@post.created_at, format: :long) %></p>
+        </div>
+        <% if @post.user == current_user %>
+          <%= link_to (t 'defaults.edit'), edit_post_path %>
+        <% end %>
+        <%= link_to (t 'defaults.index'), posts_path %>
+      </div>
+    </div>
+  </div>
+</div>
