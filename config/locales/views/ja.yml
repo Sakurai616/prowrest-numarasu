@@ -4,6 +4,20 @@ ja:
     login: "ログイン"
     logout: "ログアウト"
     register: "新規登録"
+    post: "投稿"
+    index: "一覧"
+    show: "詳細"
+    edit: "編集"
+    update: "更新"
+    delete: "削除"
+    message:
+      require_login: 'ログインしてください'
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成できませんでした"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新できませんでした"
+      deleted: "%{item}を削除しました"
+      delete_confirm: '削除しますか？'
   users:
     new:
       title: "ユーザー登録"
@@ -18,3 +32,12 @@ ja:
       fail: 'ログインに失敗しました'
     destroy:
       success: 'ログアウトしました'
+  posts:
+    index:
+      title: "投稿一覧"
+    new: 
+      title: "投稿作成"
+    show:
+      title: "投稿詳細"
+    edit:
+      title: "投稿編集"
