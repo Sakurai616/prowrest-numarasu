@@ -16,7 +16,7 @@ class PostsController < ApplicationController
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
       flash.now[:danger] = t('defaults.message.not_created', item: Post.model_name.human)
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy!
-    redirect_to posts_path, success: t('defaults.message.deleted', item: Post.model_name.human)
+    redirect_to posts_path, success: t('defaults.message.deleted', item: Post.model_name.human), status: :see_other
   end 
 
   private

@@ -1,6 +1,8 @@
 <div class="col-sm-12 col-lg-4 mb-3">
   <div class="card">
+    <% if post.image.present? %>
       <%= link_to image_tag(post.image.url), post_path(post), class: 'w-full h-full object-cover object-center' %>
+    <% end %>
     <% if post.url.present? %>
       <iframe width="400" height="300" src="https://www.youtube.com/embed/<%= post.url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <% end %>
@@ -8,7 +10,7 @@
   <div>
     <%= link_to post.title, post_path(post), class: 'text-primary hover:text-primary-focus md:text-lg font-bold' %>
     <% if post.user == current_user %>
-      <%= button_to (t 'defaults.delete'), post_path(post), method: :delete %>
+      <%= link_to (t 'defaults.delete'), post_path(post), data: { turbo_method: :delete } %>
     <% end %>
   </div>
 </div>
