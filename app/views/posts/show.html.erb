@@ -15,7 +15,9 @@
           <p><%= simple_format(@post.body) %></p>
           <p class="flex justify-end mb-4 text-primary text-primary-focus md:text-lg font-bold"><%= I18n.l(@post.created_at, format: :long) %></p>
         </div>
-        <%= link_to (t 'defaults.edit'), edit_post_path %>
+        <% if @post.user == current_user %>
+          <%= link_to (t 'defaults.edit'), edit_post_path %>
+        <% end %>
         <%= link_to (t 'defaults.index'), posts_path %>
       </div>
     </div>
