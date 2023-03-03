@@ -3,6 +3,7 @@ ja:
     models:
       user: "ユーザー"
       post: "投稿"
+      comment: "コメント"
     attributes:
       user:
         name: "ユーザーネーム"
@@ -17,6 +18,8 @@ ja:
         body: "本文"
         image: "画像"
         url: "YouTube"
+      comment:
+        body: "コメント"
   attributes:
     id: "ID"
     created_at: "作成日時"

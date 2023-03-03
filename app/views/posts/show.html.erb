@@ -23,4 +23,8 @@
       </div>
     </div>
   </div>
+  <% if @comment.user = current_user %>
+    <%= render 'comments/form', { post: @post, comment: @comment } %>
+  <% end %>
+  <%= render 'comments/comments', { comments: @comments } %>
 </div>
