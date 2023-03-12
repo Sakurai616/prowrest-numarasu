@@ -3,6 +3,8 @@ class Post < ApplicationRecord
 
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liking_users, through: :likes, source: :user
 
   mount_uploader :image, ImageUploader
 
@@ -13,5 +15,9 @@ class Post < ApplicationRecord
   #https://qiita.com/TO-TO/items/a81d55908e99ba493d99
   def slugify
     self.url = url.last(11)
+  end
+
+  def liked_by?(user)
+    liking_users.include?(user)
   end
 end

@@ -11,10 +11,14 @@
         <% end %>
         <div class="card-body text-accent-content">
           <h3 class="text-primary text-primary-focus md:text-lg font-bold"><%= @post.title %></h2>
-          <p class="text-primary text-primary-focus md:text-lg font-bold"><%= @post.body %></p>
           <p class="text-primary text-primary-focus md:text-lg font-bold"><%= @post.user.name %></p>
           <p><%= simple_format(@post.body) %></p>
           <p class="flex justify-end mb-4 text-primary text-primary-focus md:text-lg font-bold"><%= I18n.l(@post.created_at, format: :long) %></p>
+          <div class="flex gap-8 justify-end">
+            <% if logged_in? %>
+              <%= render 'like', post: @post %>
+            <% end %>
+          </div>
         </div>
         <% if @post.user == current_user %>
           <%= link_to (t 'defaults.edit'), edit_post_path, class: 'btn btn-accent' %>
