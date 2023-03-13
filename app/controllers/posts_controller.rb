@@ -3,6 +3,11 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[edit update destroy]
 
   def index
+    posts = if (tag_name = params[:tag_name])
+              Post.with_tag(tag_name)
+            else
+              Post.all
+            end
     @posts = Post.includes(:user).order(created_at: :desc)
   end
 
@@ -11,8 +16,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.new(post_params)
-    if @post.save
+    @post = current_user.posts.build(post_params)
+    if @post.save_with_tags(tag_names: params.dig(:post, :tag_names).split(',').uniq)
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
       flash.now[:danger] = t('defaults.message.not_created', item: Post.model_name.human)
@@ -26,14 +31,17 @@ class PostsController < ApplicationController
     @comments = @post.comments.includes(:user).order(created_at: :desc)
   end
 
-  def edit; end
+  def edit
+    @tag_list = @post.tags.pluck(:name).join(',')
+  end
 
   def update
-    if @post.update(post_params)
+    @post.assign_attributes(post_params)
+    if @post.save_with_tags(tag_names: params.dig(:post, :tag_names).split(',').uniq)
       redirect_to post_path(@post), success: t('defaults.message.updated', item: Post.model_name.human)
     else
       flash.now[:danger] = t('defaults.message.not_updated', item: Post.model_name.human)
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

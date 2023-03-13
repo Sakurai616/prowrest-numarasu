@@ -18,9 +18,6 @@
     <td class="action">
       <ul class="list-inline justify-content-center" style="float: right;">
         <li class="list-inline-item">
-          <%= link_to "編集", "#" %>
-        </li>
-        <li class="list-inline-item">
           <%= link_to (t 'defaults.delete'), comment_path(comment), data: { turbo_method: :delete, turbo_confirm: t('defaults.message.delete_confirm') } %>
         </li>
       </ul>
