@@ -18,6 +18,7 @@ ja:
         body: "本文"
         image: "画像"
         url: "YouTube"
+        tag_names: "タグ"
       comment:
         body: "コメント"
   attributes:

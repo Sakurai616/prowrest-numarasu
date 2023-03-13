@@ -15,7 +15,11 @@
   </div>
   <div class="form-control mb-10">
     <%= f.label :url, class: 'form-control' %>
-    <%= f.text_field :url, placeholder: 'YouTubeのURLを入力してください' %>
+    <%= f.text_field :url, class: 'input input-accent', placeholder: 'YouTubeのURLを入力してください' %>
+  </div>
+  <div class="form-control mb-10">
+    <%= f.label :tag_names, class: 'form-control' %>
+    <%= f.text_field :tag_names, class: 'input input-accent', value: @tag_list, placeholder: ',で区切って入力してください' %>
   </div>
   <%= f.submit (t 'defaults.post'), class: 'btn btn-block btn-primary mt-10 mb-20 lg:mb-10'%>
 <% end %>
