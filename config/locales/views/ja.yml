@@ -11,6 +11,7 @@ ja:
     edit: "投稿編集"
     update: "更新"
     delete: "削除"
+    question: "クイズ"
     message:
       require_login: 'ログインしてください'
       created: "%{item}を作成しました"

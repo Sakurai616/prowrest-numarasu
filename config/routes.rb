@@ -16,4 +16,8 @@ Rails.application.routes.draw do
   end
 
   resources :likes, only: %i[create destroy]
+  resources :questions do
+    resources :choices, only: %i[new create edit update destroy], shallow: true
+  end
+  resources :take_quizzes, only: %i[index]
 end
