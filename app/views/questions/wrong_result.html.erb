@@ -1,0 +1,22 @@
+<div class="bg-stone-100 p-4 m-4">
+  <div class="py-6 sm:py-8 lg:py-12">
+    <h2 class="text-accent-content text-2xl lg:text-3xl font-bold text-center text-red-500 text-5xl font-mono"><%= t '.title' %></h2>
+    <h2 class="text-accent-content text-2xl lg:text-3xl font-bold text-center text-blue-500 text-5xl font-mono">残念！</h2>
+    <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
+      <div class="card max-w-xl border rounded-xl mx-auto">
+        <% if @question.image.present? %>
+          <%= image_tag @question.image_url %>
+        <% end %>
+        <% if @question.url.present? %>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @question.url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <% end %>
+        <div class="card-body text-accent-content">
+          <p class="text-primary text-primary-focus md:text-lg font-bold"><%= @question.sentence %></p>
+        </div>
+        <div>
+          <%= render 'choices/choices', { choices: @choices } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

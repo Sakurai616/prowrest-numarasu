@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  skip_before_action :require_login, only: %i[index show]
+  skip_before_action :require_login, only: %i[index show correct_result wrong_result]
   before_action :set_question, only: %i[edit update destroy]
 
   def index
@@ -23,7 +23,6 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    @choice = Choice.new
     @choices = @question.choices.order(created_at: :desc)
   end
 
@@ -43,7 +42,15 @@ class QuestionsController < ApplicationController
     redirect_to questions_path, success: t('defaults.message.deleted', item: Question.model_name.human)
   end
 
-  def result
+  def correct_result 
+    @question = Question.find(params[:question_id])
+    @choices = @question.choices.order(created_at: :desc)
+  end
+
+  def wrong_result 
+    @question = Question.find(params[:question_id])
+    @choices = @question.choices.order(created_at: :desc)
+  end
 
   private
 
@@ -56,6 +63,6 @@ class QuestionsController < ApplicationController
   end
 
   def update_question_params
-  params.require(:question).permit(:title, :image, :image_cache, :url, :sentence, choices_attributes: [:body, :correct_answer, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:question).permit(:title, :image, :image_cache, :url, :sentence, choices_attributes: [:body, :correct_answer, :_destroy, :id]).merge(user_id: current_user.id)
   end
 end

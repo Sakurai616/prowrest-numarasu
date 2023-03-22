@@ -1,10 +1,6 @@
 <div class="col-sm-12 col-lg-4 mb-3">
-  <div class="card">
-    <% if question.image.present? %>
-      <%= link_to image_tag(question.image.url), question_path(question), class: 'w-full h-full object-cover object-center' %>
-    <% end %>
-  </div>
   <div>
     <%= link_to question.title, question_path(question) %>
+    <%= link_to question.sentence, question_path(question) %>
   </div>
 </div>
