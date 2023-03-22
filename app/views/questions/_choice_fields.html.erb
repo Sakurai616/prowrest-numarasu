@@ -1,0 +1,13 @@
+<div class="nested-fields">
+  <div class="field">
+    <div>
+      <%= f.label :body, class: 'form-control' %>
+      <%= f.text_field :body, class: 'input input-accent' %>
+    </div>
+    <div>
+      <%= f.label :correct_answer, class: 'block' %>
+      <%= f.select :correct_answer, [['正解', 'correct' ], ['不正解', 'incorrect' ]], {}, {class: 'select select-bordered rounded-full w-auto max-w-xs'} %>
+      <%= link_to_remove_association "選択肢を削除", f, class: 'link link-secondary link-hover' %>
+    </div>
+  </div>
+</div>

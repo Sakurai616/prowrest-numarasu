@@ -1,0 +1,29 @@
+<%= form_with model: @question, local: true do |f| %>
+  <%= render 'shared/error_messages', object: @question %>
+  <div class="form-control mb-10">
+    <%= f.label :title, class: 'form-control' %>
+    <%= f.text_field :title, class: 'input input-accent' %>
+  </div>
+  <div class="form-control mb-10">
+    <%= f.label :image, class: 'form-control' %>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+  <div class="form-control mb-10">
+    <%= f.label :url, class: 'form-control' %>
+    <%= f.text_field :url, class: 'input input-accent', placeholder: 'YouTubeのURLを入力してください' %>
+  </div>
+  <div class="form-control mb-10">
+    <%= f.label :sentence, class: 'form-control' %>
+    <%= f.text_field :sentence, class: 'input input-accent' %>
+  </div>
+  <div class="form-control mb-10">
+    <%= f.fields_for :choices do |choice| %>
+      <%= render 'choice_fields', :f => choice %>
+    <% end %>
+  </div>
+  <div class="form-control mb-10">
+    <%= link_to_add_association '＋選択肢を増やす', f, :choices, class: 'link link-accent font-medium my-5' %>
+  </div>
+  <%= f.submit "作成する", class: 'btn btn-accent' %>
+<% end %>

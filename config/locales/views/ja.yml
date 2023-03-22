@@ -9,6 +9,7 @@ ja:
     new: "投稿作成"
     show: "投稿詳細"
     edit: "投稿編集"
+    question_edit: "クイズ編集"
     update: "更新"
     delete: "削除"
     message:
@@ -42,3 +43,14 @@ ja:
       title: "投稿詳細"
     edit:
       title: "投稿編集"
+  questions:
+    index:
+      title: "クイズ一覧"
+    new:
+      title: "クイズ作成"
+    edit:
+      title: "クイズ編集"
+    correct_result:
+      index: "クイズ一覧"
+    wrong_result:
+      index: "クイズ一覧"
