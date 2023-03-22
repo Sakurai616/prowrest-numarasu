@@ -23,6 +23,9 @@
               <% end %>
             </div>
           </div>
+          <% if @question.user == current_user %>
+            <%= link_to (t 'defaults.question_edit'), edit_question_path, class: "btn btn-secondary" %>
+          <% end %>
         </div>
       </div>
     </div>

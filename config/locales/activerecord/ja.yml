@@ -4,6 +4,7 @@ ja:
       user: "ユーザー"
       post: "投稿"
       comment: "コメント"
+      question: "クイズ"
     attributes:
       user:
         name: "ユーザーネーム"
@@ -19,6 +20,14 @@ ja:
         image: "画像"
         url: "YouTube"
         tag_names: "タグ"
+      question:
+        title: "タイトル"
+        image: "画像"
+        url: "YouTube"
+        sentence: "問題文"
+      choice:
+        body: "選択肢"
+        correct_answer: "正解・不正解"
       comment:
         body: "コメント"
   attributes:
@@ -30,3 +39,7 @@ ja:
       role:
         general: "一般"
         admin: "管理者"
+    choice:
+      correct_answer:
+        incorrect: "不正解"
+        correct: "正解"
