@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :like_posts, through: :likes, source: :post
   has_many :questions, dependent: :destroy
+  has_many :chat_group_users
+  has_many :chat_groups, through: :chat_group_users
+  has_many :messages, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 255 }
   validates :email, presence: true, uniqueness: true
