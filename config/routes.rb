@@ -24,4 +24,6 @@ Rails.application.routes.draw do
     get 'wrong_result', to: 'questions#wrong_result'
   end
 
+  resources :chat_groups
+
 end

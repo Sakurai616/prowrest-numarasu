@@ -9,6 +9,7 @@ ja:
     new: "投稿作成"
     show: "投稿詳細"
     edit: "投稿編集"
+    question_new: "クイズ作成"
     question_edit: "クイズ編集"
     update: "更新"
     delete: "削除"

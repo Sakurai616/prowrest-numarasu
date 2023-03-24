@@ -1,0 +1,14 @@
+<div class="col-sm-12 col-lg-4 mb-3">
+  <div class="card">
+    <% @chat_group_lists.each do |list| %>
+      <% if list.user_ids.include?(current_user.id) %>
+        <% if chat_group.image.present? %>
+          <%= link_to image_tag(chat_group.image.url), "/chat_groups/#{list.id}" %>
+        <% end %>
+        <%= link_to "/chat_groups/#{list.id}" do %>
+          <%= list.group_name %>(<%= list.user_ids.count %>)
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
