@@ -1,0 +1,39 @@
+<div class="bg-stone-100 p-4 m-4">
+  <div class="py-6 sm:py-8 lg:py-12">
+    <h2 class="text-accent-content text-2xl lg:text-3xl font-bold text-center text-red-500 text-5xl font-mono"><%= t '.title' %></h2>
+    <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
+      <div class="card max-w-xl border rounded-xl mx-auto">
+        <% if @chat_group.image.present? %>
+          <%= image_tag @chat_group.image_url %>
+        <% end %>
+        <div>
+          <span class="text-primary text-primary-focus md:text-lg font-bold">
+            <%= link_to chat_groups_path do %>
+              ＜
+            <% end %>
+          </span>
+          <span class="text-primary text-primary-focus md:text-lg font-bold">
+            <%= @chat_group.group_name %>
+          </span>
+        </div>
+
+        <% if @chat_group.group_description != "" %>
+          <div class="chat-group-show__description">
+            <span class="text-primary text-primary-focus md:text-lg font-bold">説明：</span>
+            <span class="text-primary text-primary-focus md:text-lg font-bold">
+              <%= @chat_group.group_description %>
+            </span>
+          </div>
+        <% else %>
+          <div class="text-primary text-primary-focus md:text-lg font-bold">
+            説明文はありません。
+          </div>
+        <% end %>
+
+        <div class="text-primary text-primary-focus md:text-lg font-bold">
+          トーク
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

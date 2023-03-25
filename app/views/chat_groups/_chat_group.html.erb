@@ -1,14 +1,16 @@
 <div class="col-sm-12 col-lg-4 mb-3">
   <div class="card">
-    <% @chat_group_lists.each do |list| %>
-      <% if list.user_ids.include?(current_user.id) %>
+      <% if chat_group.user_ids.include?(current_user.id) %>
         <% if chat_group.image.present? %>
-          <%= link_to image_tag(chat_group.image.url), "/chat_groups/#{list.id}" %>
+          <%= link_to image_tag(chat_group.image.url), chat_group_path(chat_group.id) %>
         <% end %>
-        <%= link_to "/chat_groups/#{list.id}" do %>
-          <%= list.group_name %>(<%= list.user_ids.count %>)
+        <%= link_to chat_group_path(chat_group.id) do %>
+          <%= chat_group.group_name %>(<%= chat_group.user_ids.count %>)
         <% end %>
+        <div class="text-primary text-primary-focus md:text-lg font-bold">
+          <%= link_to "編集", edit_chat_group_path(chat_group.id) %>
+          <%= link_to "削除", chat_group_path(chat_group.id), data: { turbo_method: :delete, turbo_confirm: t('defaults.message.delete_confirm') } %>
+        </div>
       <% end %>
-    <% end %>
   </div>
 </div>

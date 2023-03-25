@@ -1,9 +1,8 @@
 class ChatGroupsController < ApplicationController
-  before_action :set_post, only: %i[show edit update]
+  before_action :set_chat_group, only: %i[show edit update]
 
   def index
     @chat_group_lists = ChatGroup.all
-    @chat_group_joining = ChatGroupUser.where(user_id: current_user.id)
   end
 
   def new 
@@ -35,10 +34,9 @@ class ChatGroupsController < ApplicationController
   end
 
   def destroy
-    delete_group = Group.find(params[:id])
-    if delete_group.destroy
+    delete_group = ChatGroup.find(params[:id])
+    delete_group.destroy!
       redirect_to chat_groups_path, success: t('defaults.message.deleted', item: ChatGroup.model_name.human), status: :see_other
-    end
   end
 
   private
