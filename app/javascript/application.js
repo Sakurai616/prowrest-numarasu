@@ -3,3 +3,5 @@ import "cocoon-js-vanilla";
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "@oddcamp/cocoon-vanilla-js";
+import jquery from "jquery";
+window.$ = window.jQuery = jquery;

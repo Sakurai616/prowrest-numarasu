@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :like_posts, through: :likes, source: :post
   has_many :questions, dependent: :destroy
   has_many :chat_group_users, dependent: :destroy
-  has_many :chat_groups, through: :chat_group_users
+  has_many :chat_groups, through: :chat_group_users, source: :chat_group, dependent: :destroy
   has_many :messages, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 255 }

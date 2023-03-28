@@ -20,7 +20,9 @@ class ChatGroupsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @messages = @chat_group.messages
+  end
 
   def edit; end
 
@@ -35,8 +37,9 @@ class ChatGroupsController < ApplicationController
 
   def destroy
     delete_group = ChatGroup.find(params[:id])
-    delete_group.destroy!
+    if delete_group.destroy
       redirect_to chat_groups_path, success: t('defaults.message.deleted', item: ChatGroup.model_name.human), status: :see_other
+    end
   end
 
   private
