@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  mount ActionCable.server => '/cable'
   root 'static_pages#top'
 
   get 'login', to: 'user_sessions#new'
@@ -24,4 +21,5 @@ Rails.application.routes.draw do
     get 'wrong_result', to: 'questions#wrong_result'
   end
 
+  resources :chat_groups
 end

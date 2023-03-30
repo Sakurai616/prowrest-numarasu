@@ -1,0 +1,9 @@
+<h1><%= @chat_group.group_name %></h1>
+<div id="messages" data-chat_group_id="<%= @chat_group.id %>">
+  <%= render @messages %>
+</div>
+
+<form>
+  <%= label_tag :body, 'Say something:' %>
+  <input type="text" data-behavior="chat_group_speaker">
+</form>
