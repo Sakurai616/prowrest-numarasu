@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  skip_before_action :require_login, only: %i[index show]
+  skip_before_action :require_login, only: %i[index show search]
   before_action :set_post, only: %i[edit update destroy]
 
   def index
@@ -48,7 +48,12 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy!
     redirect_to posts_path, success: t('defaults.message.deleted', item: Post.model_name.human), status: :see_other
-  end 
+  end
+
+  def search
+    @search_form = SearchPostsForm.new(search_post_params)
+    @posts = @search_form.search.includes(:user).order(created_at: :desc)
+  end
 
   private
 
@@ -58,5 +63,9 @@ class PostsController < ApplicationController
 
   def set_post
     @post = current_user.posts.find(params[:id])
+  end
+
+  def search_post_params
+    params.fetch(:q, {}).permit(:title_or_body, :tag_name)
   end
 end

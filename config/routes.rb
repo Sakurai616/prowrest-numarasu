@@ -12,13 +12,18 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments, only: %i[create destroy], shallow: true
+    collection do
+      get 'search'
+    end
   end
 
   resources :likes, only: %i[create destroy]
   resources :questions do
-    resources :choices, only: %i[new create edit update destroy], shallow: true
     get 'correct_result', to: 'questions#correct_result'
     get 'wrong_result', to: 'questions#wrong_result'
+    collection do 
+      get 'search'
+    end
   end
 
   resources :chat_groups
