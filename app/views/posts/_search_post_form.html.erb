@@ -1,5 +1,5 @@
 <%= form_with model: search_form, url: search_posts_path, scope: :q, class: 'd-flex', method: :get do |f| %>
-  <%= f.search_field :title_or_body, class: 'form-control me-2', placeholder: '投稿' %>
-  <%= f.search_field :tag_name, class: 'form-control me-2', placeholder: 'タグ' %>
-  <%= f.submit 'Search', class: 'btn btn-outline-success' %>
+  <%= f.search_field :title_or_body, class: 'form-control me-2', placeholder: (t 'defaults.post') %>
+  <%= f.search_field :tag_name, class: 'form-control me-2', placeholder: (t 'defaults.tag') %>
+  <%= f.submit (t 'defaults.search'), class: 'btn btn-outline-success' %>
 <% end %>

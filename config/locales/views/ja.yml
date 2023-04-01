@@ -9,10 +9,17 @@ ja:
     new: "投稿作成"
     show: "投稿詳細"
     edit: "投稿編集"
+    question: "クイズ"
+    prowrest-question: "プロレスクイズ"
     question_new: "クイズ作成"
     question_edit: "クイズ編集"
+    tag: "タグ"
+    url: "共有からYouTubeのURLを入力してください"
+    tag_form: ",で区切って入力してください"
+    create: "作成"
     update: "更新"
     delete: "削除"
+    search: "検索"
     message:
       require_login: 'ログインしてください'
       created: "%{item}を作成しました"
