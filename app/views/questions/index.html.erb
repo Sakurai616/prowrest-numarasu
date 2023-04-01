@@ -9,5 +9,8 @@
     <div class="grid grid-cols-2 mb-20 md:mb-10 md:grid-cols-3 gap-x-4 lg:gap-x-8 gap-y-8 lg:gap-y-12 bg-stone-50">
       <%= render @questions %>
     </div>
+    <div>
+      <%= paginate @questions %>
+    </div>
   </div>
 </div>
