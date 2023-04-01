@@ -11,7 +11,7 @@
   </div>
   <div class="form-control mb-10">
     <%= f.label :url, class: 'form-control' %>
-    <%= f.text_field :url, class: 'input input-accent', placeholder: 'YouTubeのURLを入力してください' %>
+    <%= f.text_field :url, class: 'input input-accent', placeholder: (t 'defaults.url') %>
   </div>
   <div class="form-control mb-10">
     <%= f.label :sentence, class: 'form-control' %>
@@ -23,7 +23,7 @@
     <% end %>
   </div>
   <div class="form-control mb-10">
-    <%= link_to_add_association '＋選択肢を増やす', f, :choices, class: 'link link-accent font-medium my-5' %>
+    <%= link_to_add_association t('activerecord.attributes.question.increase'), f, :choices, class: 'link link-accent font-medium my-5' %>
   </div>
-  <%= f.submit "作成する", class: 'btn btn-accent' %>
+  <%= f.submit class: 'btn btn-accent' %>
 <% end %>
