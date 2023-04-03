@@ -1,25 +1,26 @@
 <%= form_with model: @post, local: true do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="form-control mb-10">
-    <%= f.label :title, class: 'form-control' %>
+    <%= f.label :title, class: 'font-bold' %>
     <%= f.text_field :title, class: 'input input-accent' %>
   </div>
   <div class="form-control mb-10">
-    <%= f.label :body, class: 'form-control' %>
-    <%= f.text_field :body, class: 'input input-accent' %>
+    <%= f.label :body, class: 'font-bold' %>
+    <%= f.text_area :body, class: 'input input-accent' %>
   </div>
   <div class="form-control mb-10">
-    <%= f.label :image, class: 'form-control' %>
+    <%= f.label :image, class: 'font-bold' %>
     <%= f.file_field :image %>
     <%= f.hidden_field :image_cache %>
   </div>
   <div class="form-control mb-10">
-    <%= f.label :url, class: 'form-control' %>
+    <%= f.label :url, class: 'font-bold' %>
     <%= f.text_field :url, class: 'input input-accent', placeholder: (t 'defaults.url') %>
   </div>
   <div class="form-control mb-10">
-    <%= f.label :tag_names, class: 'form-control' %>
+    <%= f.label :tag_names, class: 'font-bold' %>
     <%= f.text_field :tag_names, class: 'input input-accent', value: @tag_list, placeholder: (t 'defaults.tag_form') %>
   </div>
-  <%= f.submit class: 'btn btn-block btn-primary mt-10 mb-20 lg:mb-10'%>
+  <p class="text-sm text-end">*必須項目</p>
+  <%= f.submit class: 'btn btn-block btn-secondary mt-10 mb-20 lg:mb-10'%>
 <% end %>

@@ -15,7 +15,7 @@ ja:
         avatar: "アバター"
         role: "権限"
       post:
-        title: "タイトル"
+        title: "*タイトル"
         body: "本文"
         image: "画像"
         url: "YouTube"

@@ -9,6 +9,7 @@ ja:
     new: "投稿作成"
     show: "投稿詳細"
     edit: "投稿編集"
+    comment: "コメント"
     question: "クイズ"
     prowrest-question: "プロレスクイズ"
     question_new: "クイズ作成"
@@ -56,10 +57,12 @@ ja:
       title: "投稿作成"
     show:
       title: "投稿詳細"
+      comment: "コメント"
     edit:
       title: "投稿編集"
     search:
       title: "投稿一覧"
+      no_result: "検索結果がありません"
   questions:
     index:
       title: "クイズ一覧"
@@ -73,3 +76,4 @@ ja:
       index: "クイズ一覧"
     search:
       title: "クイズ一覧"
+      no_result: "検索結果がありません"
