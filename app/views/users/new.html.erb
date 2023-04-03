@@ -1,34 +1,40 @@
 <div class="py-6 sm:py-8 lg:py-12">
   <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
-    <h2 class="text-accent-content text-2xl lg:text-3xl font-bold text-center text-red-500 text-5xl font-mono"><%= t '.title' %></h2>
+    <h2 class="text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-8 md:text-red-500">
+      <%= t '.title' %>
+    </h2>
     <div class="max-w-xl border rounded-xl mx-auto">
       <div class="flex flex-col bg-stone-50 gap-4 p-4 md:p-8 ">
         <%= form_with model: @user, local: true do |f| %>
           <%= render 'shared/error_messages', object: f.object %>
           <div class="form-control mb-10">
-            <%= f.label :name, class: 'form-control' %>
+            <%= f.label :name, class: 'font-bold' %>
             <%= f.text_field :name, class: 'input input-accent' %>
           </div>
           <div class="form-control mb-10">
-            <%= f.label :email, class: 'form-control' %>
+            <%= f.label :email, class: 'font-bold' %>
             <%= f.email_field :email, class: 'input input-accent' %>
           </div>
           <div class="form-control mb-10">
-            <%= f.label :avatar, class: 'form-control' %>
+            <%= f.label :avatar, class: 'font-bold' %>
             <%= f.file_field :avatar %>
             <%= f.hidden_field :avatar_cache %>
           </div>
           <div class="form-control mb-10">
-            <%= f.label :password, class: 'form-control' %>
+            <%= f.label :password, class: 'font-bold' %>
             <%= f.password_field :password, class: 'input input-accent' %>
           </div>
           <div class="form-control mb-10">
-            <%= f.label :password_confirmation, class: 'form-control' %>
+            <%= f.label :password_confirmation, class: 'font-bold' %>
             <%= f.password_field :password_confirmation, class: 'input input-accent' %>
           </div>
-          <%= f.submit (t 'defaults.register'), class: 'btn btn-block btn-primary mt-10 mb-20 lg:mb-10'%>
+          <p class="text-sm text-end">*必須項目</p>
+          <%= f.submit (t 'defaults.register'), class: 'btn btn-block btn-secondary mt-10 mb-20 lg:mb-10'%>
         <% end %>
       </div>
     </div>
+  </div>
+  <div class="text-center m-12">
+    <%= link_to t('defaults.login'), new_user_path, class: "btn btn-secondary" %>
   </div>
 </div>

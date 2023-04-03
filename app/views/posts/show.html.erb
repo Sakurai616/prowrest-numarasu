@@ -18,9 +18,7 @@
           </div>
           <p class="flex justify-end mb-4 text-primary text-primary-focus md:text-lg font-bold"><%= I18n.l(@post.created_at, format: :long) %></p>
           <div class="flex gap-8 justify-end">
-            <% if logged_in? %>
-              <%= render 'like', post: @post %>
-            <% end %>
+            <%= render 'like', post: @post %>
           </div>
         </div>
         <% if @post.user == current_user %>

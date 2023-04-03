@@ -6,10 +6,10 @@
     <div class="navbar-end">
       <div class="dropdown dropdown-hover dropdown-end">
         <div class="btn btn-ghost normal-case rounded-full">
-        <%= image_tag current_user.avatar_url, size: '50x50', class: 'rounded-circle mr15' %>
+          <%= image_tag current_user.avatar_url, size: '50x50', class: "rounded-full" %>
         </div>
         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-          <li class="btn btn-primary">
+          <li class="btn btn-secondary">
             <div class="dropdown-item"><%= current_user.name %></div>
           </li>
           <li>

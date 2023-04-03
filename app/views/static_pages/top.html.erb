@@ -2,12 +2,14 @@
   <div class="my-14 md:my-20 text-center">
     <div class="font-bold text-xl md:text-4xl"><span class="text-5xl md:text-7xl md:text-red-500">プロレスヌマラス</span><p class="mt-5 md:mt-12"><span class="text-2xl md:text-5xl md:text-red-400">〜プロレスファンに出会いを〜</span></p></div>
   </div>
-  <div class="text-center">
-    <div class="md:space-x-20">
-      <button class="btn btn-secondary md:text-xl"><%= link_to "使ってみる", new_user_path %></button>
-      <button class="btn btn-secondary md:text-xl"><%= link_to t('defaults.login'), login_path %></button>
+  <% if !logged_in? %>
+    <div class="text-center">
+      <div class="md:space-x-20">
+        <button class="btn btn-secondary md:text-xl"><%= link_to "使ってみる", new_user_path %></button>
+        <button class="btn btn-secondary md:text-xl"><%= link_to t('defaults.login'), login_path %></button>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
 
 <div class="my-14 md:my-20 md:bg-gray-100">
@@ -52,11 +54,13 @@
     <div class='font-bold text-center text-lg md:text-2xl mt-10 mb-5 md:p-10 text-red-500'>
       ログインするとクイズ・投稿作成ができます
     </div>
-    <div class="text-center md:p-10">
-      <div class="md:space-x-20">
-        <button class="btn btn-secondary md:text-xl"><%= link_to "使ってみる", new_user_path %></button>
-        <button class="btn btn-secondary md:text-xl"><%= link_to t('defaults.login'), login_path %></button>
+    <% if !logged_in? %>
+      <div class="text-center md:p-10">
+        <div class="md:space-x-20">
+          <button class="btn btn-secondary md:text-xl"><%= link_to "使ってみる", new_user_path %></button>
+          <button class="btn btn-secondary md:text-xl"><%= link_to t('defaults.login'), login_path %></button>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>

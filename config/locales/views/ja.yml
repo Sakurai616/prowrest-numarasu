@@ -58,6 +58,8 @@ ja:
       title: "投稿詳細"
     edit:
       title: "投稿編集"
+    search:
+      title: "投稿一覧"
   questions:
     index:
       title: "クイズ一覧"
@@ -69,3 +71,5 @@ ja:
       index: "クイズ一覧"
     wrong_result:
       index: "クイズ一覧"
+    search:
+      title: "クイズ一覧"

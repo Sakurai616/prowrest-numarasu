@@ -7,11 +7,11 @@ ja:
       question: "クイズ"
     attributes:
       user:
-        name: "ユーザーネーム"
-        email: "メールアドレス"
+        name: "*ユーザーネーム"
+        email: "*メールアドレス"
         avatar: "アバター"
-        password: "パスワード"
-        password_confirmation: "パスワード確認"
+        password: "*パスワード"
+        password_confirmation: "*パスワード確認"
         avatar: "アバター"
         role: "権限"
       post:
