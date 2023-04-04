@@ -21,7 +21,7 @@ ja:
         url: "YouTube"
         tag_names: "タグ"
       question:
-        title: "タイトル"
+        title: "*タイトル"
         image: "画像"
         url: "YouTube"
         sentence: "問題文"

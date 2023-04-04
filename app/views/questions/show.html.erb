@@ -1,33 +1,36 @@
 <div class="bg-stone-100 p-4 m-4">
   <div class="py-6 sm:py-8 lg:py-12">
-    <h2 class="text-accent-content text-2xl lg:text-3xl font-bold text-center text-red-500 text-5xl font-mono"><%= @question.title %></h2>
+    <h2 class="text-accent-content text-2xl lg:text-3xl font-bold text-center text-red-500 text-5xl"><%= @question.title %></h2>
     <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
-      <div class="card max-w-xl border rounded-xl mx-auto">
+      <div class="flex justify-center h-96">
         <% if @question.image.present? %>
           <%= image_tag @question.image_url %>
         <% end %>
         <% if @question.url.present? %>
           <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @question.url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <% end %>
-        <div>
-          <div class="card max-w-xl border rounded-xl mx-auto">
-            <div class="card-body text-accent-content">
-              <p class="text-primary text-primary-focus md:text-lg font-bold"><%= @question.sentence %></p>
-            </div>
-              <% @question.choices.each do |choice| %>
-                <% if choice.correct_answer == "correct" %>
-                  <%= link_to choice.body, question_correct_result_path(@question), class: "btn btn-accent" %> 
-                <% else %>
-                  <%= link_to choice.body, question_wrong_result_path(@question), class: "btn btn-accent" %>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-          <% if @question.user == current_user %>
-            <%= link_to (t 'defaults.question_edit'), edit_question_path, class: "btn btn-secondary" %>
-          <% end %>
-        </div>
       </div>
+    </div>
+  </div>
+
+  <div>
+    <p class="text-accent text-center md:text-2xl font-bold md:m-auto"><%= @question.sentence %></p>
+    <div class="text-center pt-16">
+      <div class="md:space-x-20">
+        <% @question.choices.each do |choice| %>
+          <% if choice.correct_answer == "correct" %>
+            <%= link_to choice.body, question_correct_result_path(@question), class: "btn" %> 
+          <% else %>
+            <%= link_to choice.body, question_wrong_result_path(@question), class: "btn" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="text-center space-x-32 pt-16">
+      <% if @question.user == current_user %>
+        <button class="btn btn-secondary md:text-lg"><%= link_to (t 'defaults.edit'), edit_question_path %></button>
+        <button class="btn btn-accent md:text-base"><%= link_to (t 'defaults.delete'), question_path(@question), data: { turbo_method: :delete, turbo_confirm: t('defaults.message.delete_confirm') } %></button>
+      <% end %>
     </div>
   </div>
 </div>

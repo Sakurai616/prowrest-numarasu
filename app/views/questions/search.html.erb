@@ -1,13 +1,22 @@
 <div class="py-6 md:py-8">
   <div class="max-w-screen-xl px-6 md:px-10 mx-auto">
     <div class="mb-10 md:mb-16">
-      <h2 class="text-accent-content text-2xl lg:text-3xl font-bold text-center text-red-500 text-5xl font-mono"><%= t '.title' %></h2>
+      <h2 class="text-accent-content text-2xl lg:text-3xl font-bold text-center text-red-500 text-5xl">
+        <%= t '.title' %>
+      </h2>
     </div>
-    <div>
-      <%= render 'search_question_form', search_form: @search_form %>
-    </div>
-    <div class="grid grid-cols-2 mb-20 md:mb-10 md:grid-cols-3 gap-x-4 lg:gap-x-8 gap-y-8 lg:gap-y-12 bg-stone-50">
-      <%= render @questions %>
-    </div>
+      <div class="m-8">
+        <%= render 'search_question_form', search_form: @search_form %>
+      </div>
+    <% if @questions.present? %>
+      <div class="grid grid-cols-2 mb-20 md:mb-10 md:grid-cols-3 gap-x-4 lg:gap-x-8 gap-y-8 lg:gap-y-12 bg-stone-50">
+        <%= render @questions %>
+      </div>
+      <div class="grid grid-cols-2 mb-20 md:mb-10 md:grid-cols-3 gap-x-4 lg:gap-x-8 gap-y-8 lg:gap-y-12 bg-stone-50">
+        <%= paginate @questions %>
+      </div>
+    <% else %>
+      <h1 class="text-md lg:text-2xl font-bold text-center md:mb-6"><%= t '.no_result' %></h1>
+    <% end %>
   </div>
 </div>

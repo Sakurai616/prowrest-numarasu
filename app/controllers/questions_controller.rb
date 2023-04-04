@@ -44,12 +44,12 @@ class QuestionsController < ApplicationController
 
   def correct_result 
     @question = Question.find(params[:question_id])
-    @choices = @question.choices.order(created_at: :desc)
+    @choices = @question.choices
   end
 
   def wrong_result 
     @question = Question.find(params[:question_id])
-    @choices = @question.choices.order(created_at: :desc)
+    @choices = @question.choices
   end
 
   def search
