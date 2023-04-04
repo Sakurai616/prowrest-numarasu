@@ -1,20 +1,20 @@
 <%= form_with model: @question, local: true do |f| %>
-  <%= render 'shared/error_messages', object: @question %>
+  <%= render 'shared/error_messages', object: f.object %>
   <div class="form-control mb-10">
-    <%= f.label :title, class: 'form-control' %>
+    <%= f.label :title, class: 'font-bold' %>
     <%= f.text_field :title, class: 'input input-accent' %>
   </div>
   <div class="form-control mb-10">
-    <%= f.label :image, class: 'form-control' %>
-    <%= f.file_field :image %>
+    <%= f.label :image, class: 'font-bold' %>
+    <%= f.file_field :image, class: 'file-input file-input-bordered file-input-accent w-full max-w-xs' %>
     <%= f.hidden_field :image_cache %>
   </div>
   <div class="form-control mb-10">
-    <%= f.label :url, class: 'form-control' %>
+    <%= f.label :url, class: 'font-bold' %>
     <%= f.text_field :url, class: 'input input-accent', placeholder: (t 'defaults.url') %>
   </div>
   <div class="form-control mb-10">
-    <%= f.label :sentence, class: 'form-control' %>
+    <%= f.label :sentence, class: 'font-bold' %>
     <%= f.text_area :sentence, class: 'input input-accent' %>
   </div>
   <div class="form-control mb-10">
@@ -23,7 +23,8 @@
     <% end %>
   </div>
   <div class="form-control mb-10">
-    <%= link_to_add_association t('activerecord.attributes.question.increase'), f, :choices, class: 'link link-accent font-medium my-5' %>
+    <%= link_to_add_association t('activerecord.attributes.question.increase'), f, :choices, class: 'link link-accent font-bold my-5 ' %>
   </div>
-  <%= f.submit class: 'btn btn-accent' %>
+  <p class="text-sm text-end">*必須項目</p>
+  <%= f.submit class: 'btn btn-block btn-secondary mt-10 mb-20 lg:mb-10' %>
 <% end %>

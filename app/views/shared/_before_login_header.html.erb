@@ -1,11 +1,13 @@
 <header>
   <div class="navbar bg-accent text-accent-content">
-    <div class="navbar-start">
-      <%= link_to t('defaults.prowrest-numarasu'), root_path, class: "btn btn-accent" %>
+    <div class="navbar-start font-bold text-2xl">
+      <%= link_to t('defaults.prowrest-numarasu'), root_path %>
     </div>
-    <div class="navbar-end">
-      <%= link_to t('defaults.login'), login_path, class: "btn btn-accent" %>
-      <%= link_to t('defaults.register'), new_user_path, class: "btn btn-accent" %>
+    <div class="navbar-end space-x-6 font-bold">
+      <%= link_to t('defaults.question_index'), questions_path %>
+      <%= link_to t('defaults.index'), posts_path %>
+      <%= link_to t('defaults.login'), login_path %>
+      <%= link_to t('defaults.register'), new_user_path %>
     </div>
   </div>
 </header>

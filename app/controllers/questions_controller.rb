@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to questions_path, success: t('defaults.message.created', item: Question.model_name.human)
     else
-      flash.now[:danger] = t('defaults.message.not_created', item: Question.model_name.human)
+      flash.now[:error] = t('defaults.message.not_created', item: Question.model_name.human)
       render :new, status: :unprocessable_entity
     end
   end
@@ -32,7 +32,7 @@ class QuestionsController < ApplicationController
     if @question.update(update_question_params)
       redirect_to questions_path, success: t('defaults.message.updated', item: Question.model_name.human)
     else
-      flash.now[:danger] = t('defaults.message.not_updated', item: Question.model_name.human)
+      flash.now[:error] = t('defaults.message.not_updated', item: Question.model_name.human)
       render :edit, status: :unprocessable_entity
     end
   end
@@ -44,17 +44,17 @@ class QuestionsController < ApplicationController
 
   def correct_result 
     @question = Question.find(params[:question_id])
-    @choices = @question.choices.order(created_at: :desc)
+    @choices = @question.choices
   end
 
   def wrong_result 
     @question = Question.find(params[:question_id])
-    @choices = @question.choices.order(created_at: :desc)
+    @choices = @question.choices
   end
 
   def search
     @search_form = SearchQuestionsForm.new(search_question_params)
-    @questions = @search_form.search.includes(:user).order(created_at: :desc)
+    @questions = @search_form.search.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   private

@@ -1,13 +1,13 @@
 <div class='nested-fields'>
   <div class="field">
     <div>
-      <%= f.label :body %>
-      <%= f.text_field :body, class: 'input input-bordered w-full mb-3 px-4 py-3 rounded-full' %>
+      <%= f.label :body, class: 'font-bold' %>
+      <%= f.text_field :body, class: 'input input-accent w-full mb-3 px-4 py-3 rounded-full' %>
     </div>
     <div>
-      <%= f.label :correct_answer, class: 'block' %>
+      <%= f.label :correct_answer, class: 'font-bold' %>
       <%= f.select :correct_answer, [[t('activerecord.attributes.choice.correct'), 'correct' ], [t('activerecord.attributes.choice.incorrect'), 'incorrect' ]], {}, {class: 'select select-bordered rounded-full w-auto max-w-xs'} %>
-      <%= link_to_remove_association t('activerecord.attributes.choice.delete'), f, class: 'link link-secondary link-hover' %>
+      <%= link_to_remove_association t('activerecord.attributes.choice.delete'), f, class: 'link link-secondary link-hover font-bold' %>
     </div>
   </div>
 </div>

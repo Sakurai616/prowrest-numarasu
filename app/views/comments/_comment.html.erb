@@ -1,19 +1,21 @@
-<tr id="comment-<%= comment.id %>">
+<tr>
   <td style="width: 60px">
-    <%= image_tag comment.user.avatar_url, class: 'rounded-circle', size: '50x50' %>
+    <%= image_tag comment.user.avatar_url, class: "rounded-full", size: '60x60' %>
   </td>
   <td>
-    <h3 class="small"><%= comment.user.name %></h3>
+    <h3><%= comment.user.name %></h3>
     <div>
-      <%= simple_format(comment.body) %>
-    </div>
+      <p><%= comment.body %></p>
+    <div>
   </td>
 
   <% if comment.user == current_user %>
-    <td class="action">
+    <td>
       <ul class="list-inline justify-content-center" style="float: right;">
         <li class="list-inline-item">
-          <%= link_to (t 'defaults.delete'), comment_path(comment), data: { turbo_method: :delete, turbo_confirm: t('defaults.message.delete_confirm') } %>
+          <%= link_to comment_path(comment), data: { turbo_method: :delete, turbo_confirm: t('defaults.message.delete_confirm') } do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
         </li>
       </ul>
     </td>

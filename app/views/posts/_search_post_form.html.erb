@@ -1,5 +1,15 @@
-<%= form_with model: search_form, url: search_posts_path, scope: :q, class: 'd-flex', method: :get do |f| %>
-  <%= f.search_field :title_or_body, class: 'form-control me-2', placeholder: (t 'defaults.post') %>
-  <%= f.search_field :tag_name, class: 'form-control me-2', placeholder: (t 'defaults.tag') %>
-  <%= f.submit (t 'defaults.search'), class: 'btn btn-outline-success' %>
-<% end %>
+<div class="py-6 md:py-8">
+  <div class="mb-2 text-sm font-medium" >
+    <div class="relative mx-auto w-full md:w-2/3">
+      <%= form_with model: search_form, url: search_posts_path, scope: :q, method: :get do |f| %>
+        <%= f.search_field :title_or_body, class: 'input input-accent w-full p-4 pl-10 text-sm border border-red-500 rounded-lg', placeholder: (t 'defaults.post') %>
+        <%= f.search_field :tag_name, class: 'input input-accent w-full p-4 pl-10 text-sm border border-red-500 rounded-lg', placeholder: (t 'defaults.tag') %>
+        <div class="text-right">
+          <i class="fa-solid fa-magnifying-glass btn btn-secondary">
+            <%= f.submit (t 'defaults.search'), class: 'p-4' %>
+          </i>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

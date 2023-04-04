@@ -7,21 +7,21 @@ ja:
       question: "クイズ"
     attributes:
       user:
-        name: "ユーザーネーム"
-        email: "メールアドレス"
+        name: "*ユーザーネーム"
+        email: "*メールアドレス"
         avatar: "アバター"
-        password: "パスワード"
-        password_confirmation: "パスワード確認"
+        password: "*パスワード"
+        password_confirmation: "*パスワード確認"
         avatar: "アバター"
         role: "権限"
       post:
-        title: "タイトル"
+        title: "*タイトル"
         body: "本文"
         image: "画像"
         url: "YouTube"
         tag_names: "タグ"
       question:
-        title: "タイトル"
+        title: "*タイトル"
         image: "画像"
         url: "YouTube"
         sentence: "問題文"
