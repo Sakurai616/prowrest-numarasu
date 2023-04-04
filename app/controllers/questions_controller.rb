@@ -54,7 +54,7 @@ class QuestionsController < ApplicationController
 
   def search
     @search_form = SearchQuestionsForm.new(search_question_params)
-    @questions = @search_form.search.includes(:user).order(created_at: :desc)
+    @questions = @search_form.search.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   private
