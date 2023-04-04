@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     if @post.save_with_tags(tag_names: params.dig(:post, :tag_names).split(',').uniq)
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
-      flash.now[:danger] = t('defaults.message.not_created', item: Post.model_name.human)
+      flash.now[:error] = t('defaults.message.not_created', item: Post.model_name.human)
       render :new, status: :unprocessable_entity
     end
   end
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
     if @post.save_with_tags(tag_names: params.dig(:post, :tag_names).split(',').uniq)
       redirect_to post_path(@post), success: t('defaults.message.updated', item: Post.model_name.human)
     else
-      flash.now[:danger] = t('defaults.message.not_updated', item: Post.model_name.human)
+      flash.now[:error] = t('defaults.message.not_updated', item: Post.model_name.human)
       render :edit, status: :unprocessable_entity
     end
   end

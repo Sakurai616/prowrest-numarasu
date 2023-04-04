@@ -12,6 +12,7 @@ ja:
     comment: "コメント"
     question: "クイズ"
     prowrest-question: "プロレスクイズ"
+    question_index: "クイズ一覧"
     question_new: "クイズ作成"
     question_edit: "クイズ編集"
     tag: "タグ"

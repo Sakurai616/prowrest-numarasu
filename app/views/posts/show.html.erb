@@ -11,7 +11,7 @@
         <div class="card-body text-accent-content">
           <h2 class="text-accent md:text-3xl font-bold md:m-auto"><%= @post.title %></h2>
           <div class="text-accent md:text-xl font-bold md:flex">
-            <%= image_tag current_user.avatar_url, size: '30x30', class: "rounded-full" %>
+            <%= image_tag @post.user.avatar_url, size: '30x30', class: "rounded-full" %>
             <%= @post.user.name %>
           </div>
           <p class="text-accent md:text-xl font-bold md:pt-5"><%= @post.body %></p>
@@ -32,11 +32,13 @@
       <button class="btn btn-accent md:text-xl"><%= link_to (t 'defaults.delete'), post_path(@post), data: { turbo_method: :delete, turbo_confirm: t('defaults.message.delete_confirm') } %></button>
     <% end %>
   </div>
-  <div class="text-accent-content text-2xl lg:text-3xl font-bold text-center text-red-500 text-5xl md:pt-12"><%= t '.comment' %></div>
-  <div class="pt-12">
-    <% if @comment.user = current_user %>
-      <%= render 'comments/form', { post: @post, comment: @comment } %>
-    <% end %>
-  </div>
-      <%= render 'comments/comments', { comments: @comments } %>
+  <% if @comment.user = current_user %>
+    <div class="text-accent-content text-2xl lg:text-3xl font-bold text-center text-red-500 text-5xl md:pt-12">
+      <%= t '.comment' %>
+    </div>
+    <div class="pt-12">
+     <%= render 'comments/form', { post: @post, comment: @comment } %>
+    </div>
+  <% end %>
+    <%= render 'comments/comments', { comments: @comments } %>
 </div>
