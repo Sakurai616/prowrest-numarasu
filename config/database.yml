@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: prowrest_numarasu_production
-  username: prowrest_numarasu
+  database: clg3ouno1004a9tp58yc5g49z
+  username: clg3ouno000489tp5f0cg9nri
   password: <%= ENV["PROWREST_NUMARASU_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
