@@ -7,7 +7,11 @@
         <% if @question.image.present? && @question.url.present? %>
           <%= image_tag @question.image_url %>
           <iframe width="500" height="390" src="https://www.youtube.com/embed/<%= @question.url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <% else %>
+        <% elsif @question.image.present? %>
+          <%= image_tag @question.image_url %>
+        <% elsif @question.url.present? %>
+          <iframe width="500" height="390" src="https://www.youtube.com/embed/<%= @question.url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <% elsif %>
           <h2 class="text-accent-content text-5xl font-bold text-center text-black text-5xl my-auto">画像・動画なし</h2>
         <% end %>
       </div>
@@ -19,7 +23,7 @@
     <div class="text-center pt-16">
       <div class="md:space-x-20">
         <% @question.choices.each do |choice| %>
-          <% if choice.correct_answer == "correct" %>
+          <% if choice.correct? %>
             <%= link_to choice.body, question_correct_result_path(@question), class: "btn" %> 
           <% else %>
             <%= link_to choice.body, question_wrong_result_path(@question), class: "btn" %>
