@@ -21,9 +21,10 @@
     - ユーザーは会員登録できる。
     - ユーザーはログインできる。
     - 選択形式のクイズを回答することができる。
+    - 投稿にいいねをすることができる。
 - ログインユーザー
   - 画像やYouTubeを入れることができる投稿の検索、新規作成、一覧、詳細、編集、削除ができる。
-    - 投稿にいいねやコメントをすることができる。
+    - 投稿にコメントをすることができる。
     - 投稿にタグをつけることができる。
     - 選択形式のクイズを作成・回答することができる。
     - グループチャットの作成・参加することができる。
@@ -40,7 +41,7 @@
 https://www.figma.com/file/dEzBkqlSeBIRtgNIopej9O/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0%3A1&t=QCHgkp64tMz9pOJv-1
 
 ## ■ER図
-https://i.gyazo.com/ce3c99e9573f532af2fd73e83cb8cd1f.png
+[![Image from Gyazo](https://i.gyazo.com/eaf7cc98582a95192512338fc4790521.png)](https://gyazo.com/eaf7cc98582a95192512338fc4790521)
 
 ## ■スケジュール
 README〜ER図作成：2/16 〆切
