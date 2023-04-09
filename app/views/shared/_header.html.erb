@@ -14,7 +14,7 @@
         </div>
         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
           <li class="btn btn-secondary">
-            <div class="dropdown-item"><%= current_user.name %></div>
+            <div class="dropdown-item"><%= link_to current_user.name, profile_path %></div>
           </li>
           <li>
             <%= link_to t('defaults.question_new'), new_question_path, class: "btn btn-accent" %>
