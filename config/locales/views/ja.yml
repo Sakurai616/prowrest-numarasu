@@ -15,6 +15,7 @@ ja:
     question_index: "クイズ一覧"
     question_new: "クイズ作成"
     question_edit: "クイズ編集"
+    profile_edit: "プロフィール編集"
     tag: "タグ"
     url: "共有からYouTubeのURLを入力してください"
     tag_form: ",で区切って入力してください"
@@ -43,6 +44,13 @@ ja:
     create: 
       success: "ユーザー登録が完了しました"
       fail: 'ユーザー登録に失敗しました'
+  profiles:
+    show:
+      title: "プロフィール"
+      name: "ユーザーネーム"
+      email: "メールアドレス"
+    edit:
+      title: "プロフィール編集"
   user_sessions:
     new:
       title: "ログイン"
