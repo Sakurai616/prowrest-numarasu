@@ -94,7 +94,7 @@ ja:
       no_result: "検索結果がありません"
       search_result: "検索結果"
   static_pages:
-    terms:
+    term:
       title: "利用規約"
     privacy:
       title: "プライバシーポリシー"

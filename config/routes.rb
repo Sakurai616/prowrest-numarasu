@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
   root 'static_pages#top'
 
-  get 'terms', to: 'static_pages#terms'
+  get 'term', to: 'static_pages#term'
   get 'privacy', to: 'static_pages#privacy'
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
