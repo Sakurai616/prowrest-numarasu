@@ -93,3 +93,8 @@ ja:
       title: "クイズ一覧"
       no_result: "検索結果がありません"
       search_result: "検索結果"
+  static_pages:
+    term:
+      title: "利用規約"
+    privacy:
+      title: "プライバシーポリシー"
