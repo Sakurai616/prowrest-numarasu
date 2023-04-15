@@ -42,16 +42,6 @@ class QuestionsController < ApplicationController
     redirect_to questions_path, success: t('defaults.message.deleted', item: Question.model_name.human)
   end
 
-  def correct_result 
-    @question = Question.find(params[:question_id])
-    @choices = @question.choices
-  end
-
-  def wrong_result 
-    @question = Question.find(params[:question_id])
-    @choices = @question.choices
-  end
-
   def search
     @search_form = SearchQuestionsForm.new(search_question_params)
     @questions = @search_form.search.includes(:user).order(created_at: :desc).page(params[:page])
