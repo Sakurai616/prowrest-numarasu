@@ -83,16 +83,14 @@ ja:
       title: "クイズ作成"
     edit:
       title: "クイズ編集"
-    correct_result:
-      index: "クイズ一覧"
-      result: "クイズ結果"
-    wrong_result:
-      index: "クイズ一覧"
-      result: "クイズ結果"
     search:
       title: "クイズ一覧"
       no_result: "検索結果がありません"
       search_result: "検索結果"
+  question_answers:
+    result:
+      index: "クイズ一覧"
+      result: "クイズ結果"
   static_pages:
     term:
       title: "利用規約"

@@ -8,9 +8,7 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
 
-  resources :users, only: %i[new create] do
-    resources :do_questions, only: %i[index show]
-  end
+  resources :users, only: %i[new create] 
 
   resource :profile, only: %i[show edit update]
 
@@ -23,11 +21,10 @@ Rails.application.routes.draw do
 
   resources :likes, only: %i[create destroy]
   resources :questions do
-    get 'correct_result', to: 'questions#correct_result'
-    get 'wrong_result', to: 'questions#wrong_result'
     collection do 
       get 'search'
     end
+    get 'result', to: 'question_answers#result'
   end
 
   resources :chat_groups
