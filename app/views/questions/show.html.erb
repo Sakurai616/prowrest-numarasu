@@ -23,7 +23,7 @@
     <div class="text-center pt-16">
       <div class="md:space-x-20">
         <% @question.choices.each do |choice| %>
-          <%= link_to choice.body, question_result_path(@question), class: "btn" %> 
+          <%= link_to choice.body, question_result_path(@question, selected_choice_id: choice.id), method: :patch, class: "btn" %> 
         <% end %>
       </div>
     </div>
