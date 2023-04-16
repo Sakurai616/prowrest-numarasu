@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  mount ActionCable.server => '/cable'
   root 'static_pages#top'
 
   get 'term', to: 'static_pages#term'
@@ -27,5 +26,7 @@ Rails.application.routes.draw do
     get 'result', to: 'question_answers#result'
   end
 
-  resources :chat_groups
+  resources :chat_groups do
+    resources :messages, only: %i[create]
+  end
 end
