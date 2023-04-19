@@ -1,9 +1,50 @@
-<h1><%= @chat_group.group_name %></h1>
-<div id="messages" data-chat_group_id="<%= @chat_group.id %>">
-  <%= render @messages %>
+<% content_for(:title, @chat_group.group_name) %>
+<div class="navbar bg-slate-600 text-accent-content">
+  <div class="navbar-start font-bold text-2xl">
+    <h1 class="font-bold text-3xl flex flex-wrap"><%= link_to "＜チャット一覧", chat_groups_path %></h1>
+  </div>
+  <div class="navbar-end font-bold text-3xl flex justify-center mr-24">
+    <%= @chat_group.group_name %>
+  </div>
+  <div class="navbar-end font-bold text-3xl space-x-6">
+    <% if @chat_group.owner_id == current_user.id %>
+      <%= link_to t('.edit'), edit_chat_group_path(@chat_group) %>
+      <%= link_to t('.delete'), chat_group_path(@chat_group), data: { turbo_method: :delete, turbo_confirm: t('defaults.message.delete_confirm') } %>
+    <% end %>
+    <% if @chat_group.users.include?(current_user) %>
+      <%= link_to t('.leave'), chat_group_leave_path(@chat_group), data: { turbo_method: :delete, turbo_confirm: t('.leave?') } %>
+    <% else %>
+      <%= link_to t('.join'), chat_group_join_path(@chat_group) %>
+    <% end %>
+  </div>
 </div>
+  <h2 class="text-center">
+    <p>※連続で会話する際は、メッセージを更新するため都度更新ボタンを押してください</p>
+    <p>（今後、自動更新されるように改善いたします）</p>
+  </h2>
+い
+  <div id="messages">
+  <% if @chat_group.messages.present? %>
+    <div class="pt-10">
+      <%= render @chat_group.messages %>
+    </div>
+  <% else %>
+    <h2 class="font-bold text-center text-5xl m-40">チャットがまだありません...</h2>
+  <% end %>
+  </div>
 
-<form>
-  <%= label_tag :body, 'Say something:' %>
-  <input type="text" data-behavior="chat_group_speaker">
-</form>
+<% if @chat_group.users.include?(current_user) %>
+  <%= form_with(model: [@chat_group, @chat_group.messages.build], remote: true) do |f| %>
+    <div class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0">
+      <div class="relative flex">
+        <div class="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-12 bg-gray-200 rounded-md py-3">
+          <%= f.text_area :body, class: 'w-full' %>
+        </div>
+        <button type="button" class="inline-flex items-center justify-center rounded-lg px-4 py-3 transition duration-500 ease-in-out text-white bg-blue-500 hover:bg-blue-400 focus:outline-none">
+          <span class="font-bold"><%= f.submit "送信" %></span>
+        </button>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+

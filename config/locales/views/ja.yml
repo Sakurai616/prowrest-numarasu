@@ -16,6 +16,12 @@ ja:
     question_new: "クイズ作成"
     question_edit: "クイズ編集"
     profile_edit: "プロフィール編集"
+    chat_group: "チャット"
+    chat_group_index: "チャットグループ一覧"
+    chat_group_new: "チャットグループ作成"
+    join_chat_group: "チャットグループに参加しました"
+    leave_chat_group: "チャットグループを退会しました"
+    not_creator: "作成者ではありません"
     tag: "タグ"
     url: "共有からYouTubeのURLを入力してください"
     tag_form: ",で区切って入力してください"
@@ -91,6 +97,23 @@ ja:
     result:
       index: "クイズ一覧"
       result: "クイズ結果"
+  chat_groups:
+    index:
+      title: "チャットグループ一覧"
+    new:
+      title: "チャットグループ作成"
+    show:
+      edit: "編集"
+      delete: "削除"
+      join: "参加"
+      leave: "退会"
+      leave?: "退会しますか？"
+    edit:
+      title: "チャットグループ編集"
+    search:
+      title: "チャットグループ一覧"
+      search_result: "検索結果"
+      no_result: "検索結果がありません"
   static_pages:
     term:
       title: "利用規約"

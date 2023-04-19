@@ -4,6 +4,7 @@ class CreateChatGroups < ActiveRecord::Migration[7.0]
       t.string :image
       t.string :group_name, null: false
       t.text :group_description
+      t.integer :owner_id, null: false
 
       t.timestamps
     end
