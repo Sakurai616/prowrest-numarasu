@@ -5,6 +5,7 @@ ja:
       post: "投稿"
       comment: "コメント"
       question: "クイズ"
+      chat_group: "チャットグループ"
     attributes:
       user:
         name: "*ユーザーネーム"
@@ -34,6 +35,10 @@ ja:
         incorrect: "不正解"
       comment:
         body: "コメント"
+      chat_group:
+        group_name: "*グループ名"
+        group_description: "グループ説明"
+        image: "画像"
   attributes:
     id: "ID"
     created_at: "作成日時"

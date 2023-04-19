@@ -6,7 +6,7 @@ class SearchQuestionsForm
     
   def search
     scope = Question.distinct
-    scope = scope.title_contain(title_or_sentence).or(scope.sentence_contain(title_or_sentence))
+    scope = scope.title_contain(title_or_sentence).or(scope.sentence_contain(title_or_sentence)) if title_or_sentence.present?
     scope
   end
 end

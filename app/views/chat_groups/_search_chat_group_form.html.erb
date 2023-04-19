@@ -1,0 +1,14 @@
+<div class="py-6 md:py-8">
+  <div class="mb-2 text-sm font-medium" >
+    <div class="relative mx-auto w-full md:w-2/3">
+      <%= form_with model: search_form, url: search_chat_groups_path, scope: :q, method: :get do |f| %>
+        <%= f.search_field :group_name_or_group_description, class: 'input input-accent w-full p-4 pl-10 text-sm border border-red-500 rounded-lg', placeholder: (t 'defaults.chat_group') %>
+        <div class="text-right">
+          <i class="fa-solid fa-magnifying-glass btn btn-secondary">
+            <%= f.submit (t 'defaults.search'), class: 'p-4' %>
+          </i>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

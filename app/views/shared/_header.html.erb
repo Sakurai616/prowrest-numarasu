@@ -5,8 +5,36 @@
     </div>
     <div class="navbar-end">
       <div class="font-bold space-x-6">
-        <%= link_to t('defaults.question_index'), questions_path %>
-        <%= link_to t('defaults.index'), posts_path %>
+        <div class="dropdown dropdown-hover dropdown-end">
+          <div>
+            <%= link_to t('defaults.question_index'), questions_path %>
+          </div>
+          <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+            <li>
+              <%= link_to t('defaults.question_new'), new_question_path, class: "btn btn-accent" %>
+            </li>
+          </ul>
+        </div>
+        <div class="dropdown dropdown-hover dropdown-end">
+          <div>
+            <%= link_to t('defaults.index'), posts_path %>
+          </div>
+          <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+            <li>
+              <%= link_to t('defaults.new'), new_post_path, class: "btn btn-accent" %>
+            </li>
+          </ul>
+        </div>
+        <div class="dropdown dropdown-hover dropdown-end">
+          <div>
+            <%= link_to t('defaults.chat_group_index'), chat_groups_path %>
+          </div>
+          <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+            <li>
+              <%= link_to t('defaults.chat_group_new'), new_chat_group_path, class: "btn btn-accent" %>
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="dropdown dropdown-hover dropdown-end">
         <div class="btn btn-ghost normal-case rounded-full">
@@ -17,8 +45,6 @@
             <div class="dropdown-item"><%= link_to current_user.name, profile_path %></div>
           </li>
           <li>
-            <%= link_to t('defaults.question_new'), new_question_path, class: "btn btn-accent" %>
-            <%= link_to t('defaults.new'), new_post_path, class: "btn btn-accent" %>
             <%= link_to t('defaults.logout'), logout_path, data: { turbo_method: :delete }, class: "btn btn-accent" %>
           </li>
         </ul>

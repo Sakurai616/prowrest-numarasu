@@ -1,16 +1,17 @@
-<div class="col-sm-12 col-lg-4 mb-3">
-  <div class="card">
-      <% if chat_group.user_ids.include?(current_user.id) %>
-        <% if chat_group.image.present? %>
-          <%= link_to image_tag(chat_group.image.url), chat_group_path(chat_group.id) %>
-        <% end %>
-        <%= link_to chat_group_path(chat_group.id) do %>
-          <%= chat_group.group_name %>(<%= chat_group.user_ids.count %>)
-        <% end %>
-        <div class="text-primary text-primary-focus md:text-lg font-bold">
-          <%= link_to "編集", edit_chat_group_path(chat_group.id) %>
-          <%= link_to "削除", chat_group_path(chat_group.id), data: { turbo_method: :delete, turbo_confirm: t('defaults.message.delete_confirm') } %>
+<div class="p-6">
+  <div class="card card-compact hover:bg-stone-100 rounded-lg shadow-lg mb-2 sm:mb-4">
+    <% if chat_group.image.present? %>
+      <%= link_to image_tag(chat_group.image.url), chat_group_path(chat_group.id) %>
+    <% end %>
+    <%= link_to chat_group_path(chat_group.id) do %>
+      <div class="text-accent md:text-xl font-bold md:m-auto">
+        <div class="flex justify-center">
+          <%= chat_group.group_name %>(<%= chat_group.users.count %>)
         </div>
-      <% end %>
+        <div class="pt-4 text-center text-secondary hover:text-blue-500 md:text-xl font-bold md:m-auto">
+          <%= chat_group.group_description %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

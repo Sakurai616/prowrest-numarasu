@@ -27,6 +27,11 @@ Rails.application.routes.draw do
   end
 
   resources :chat_groups do
+    get 'join', to: 'chat_groups#join'
+    delete 'leave', to: 'chat_groups#leave'
+    collection do
+      get 'search'
+    end
     resources :messages, only: %i[create]
   end
 end
