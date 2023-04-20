@@ -34,4 +34,5 @@ Rails.application.routes.draw do
     end
     resources :messages, only: %i[create]
   end
+  mount ActionCable.server => '/cable'
 end
