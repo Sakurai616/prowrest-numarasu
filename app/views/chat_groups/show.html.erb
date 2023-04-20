@@ -23,7 +23,7 @@
     <p>（今後、自動更新されるように改善いたします）</p>
   </h2>
 い
-  <div id="messages" data-chat_group_id="<%= @chat_group.id %>">
+<div id="messages" data-chat_group_id="<%= @chat_group.id %>">
   <% if @messages.present? %>
     <div class="pt-10">
       <%= render @messages %>
@@ -31,14 +31,15 @@
   <% else %>
     <h2 class="font-bold text-center text-5xl m-40">チャットがまだありません...</h2>
   <% end %>
-  </div>
+</div>
 
 <% if @chat_group.users.include?(current_user) %>
     <div class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0">
       <div class="relative flex">
         <div class="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-12 bg-gray-200 rounded-md py-3">
-          <%= label_tag :body %>
+        <form>
           <input type="text" data-behavior="chat_group_speaker">
+        </form>
         </div>
       </div>
     </div>
