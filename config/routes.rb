@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  root 'static_pages#top'
+  root 'questions#index'
 
+  get 'about', to: 'static_pages#about'
   get 'term', to: 'static_pages#term'
   get 'privacy', to: 'static_pages#privacy'
   get 'login', to: 'user_sessions#new'

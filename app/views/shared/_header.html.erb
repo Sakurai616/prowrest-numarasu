@@ -5,6 +5,11 @@
     </div>
     <div class="navbar-end">
       <div class="font-bold space-x-6">
+      <div class="dropdown dropdown-hover dropdown-end">
+        <div>
+          <%= link_to t('defaults.about'), about_path %>
+        </div>
+      </div>
         <div class="dropdown dropdown-hover dropdown-end">
           <div>
             <%= link_to t('defaults.question_index'), questions_path %>
