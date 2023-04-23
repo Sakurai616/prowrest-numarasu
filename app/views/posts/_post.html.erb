@@ -9,8 +9,9 @@
     <%= link_to post.title, post_path(post), class: 'text-accent hover:text-blue-500 md:text-xl font-bold md:m-auto' %>
     <div class="text-right mr-12">
       <%= render 'like', post: post %>
+      <%= @likes_count %>
     </div>
-    <div class="pt-4">
+    <div class="pt-4 space-x-3">
       <%= render post.tags %>
     </div>
   </div>

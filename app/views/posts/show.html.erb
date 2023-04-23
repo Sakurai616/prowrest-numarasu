@@ -19,7 +19,7 @@
             <%= @post.user.name %>
           </div>
           <p class="text-accent md:text-xl font-bold md:pt-5"><%= @post.body %></p>
-          <div class="pt-20">
+          <div class="pt-20 space-x-5">
             <%= render @post.tags %>
           </div>
           <p class="flex justify-end mb-4 text-accent text-accent-focus md:text-lg font-bold"><%= I18n.l(@post.created_at, format: :long) %></p>
