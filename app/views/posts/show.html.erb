@@ -1,5 +1,6 @@
 <% content_for(:title, @post.title) %>
 <div class="bg-stone-100 p-4 m-4">
+  <%= link_to "＜投稿一覧", posts_path, class: 'font-bold text-2xl text-blue-500' %>
   <div class="py-6 sm:py-8 lg:py-12">
     <h2 class="text-accent-content text-2xl lg:text-3xl font-bold text-center text-red-500 text-5xl"><%= t '.title' %></h2>
     <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
@@ -18,13 +19,13 @@
             <%= image_tag @post.user.avatar_url, size: '30x30', class: "rounded-full" %>
             <%= @post.user.name %>
           </div>
-          <p class="text-accent md:text-xl font-bold md:pt-5"><%= @post.body %></p>
+          <p class="text-blue-500 md:text-xl font-bold md:pt-5"><%= @post.body %></p>
           <div class="pt-20 space-x-5">
             <%= render @post.tags %>
           </div>
           <p class="flex justify-end mb-4 text-accent text-accent-focus md:text-lg font-bold"><%= I18n.l(@post.created_at, format: :long) %></p>
           <div class="flex gap-8 justify-end">
-            <%= render 'like', post: @post %>
+            <%= render 'actions/like_button', { post: @post } %>
           </div>
         </div>
       </div>
