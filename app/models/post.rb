@@ -16,7 +16,6 @@ class Post < ApplicationRecord
   scope :with_tag, ->(tag_name) { joins(:tags).where(tags: { name: tag_name }) }
   scope :title_contain, ->(word) { where('title LIKE ?', "%#{word}%") }
   scope :body_contain, ->(word) { where('posts.body LIKE ?', "%#{word}%") }
-  scope :tag_name, ->(tag_name) {joins(:tags).where('tags.name LIKE ?', "%#{tag_name}") }
 
   #YouTubeURLを更新する際に、削ぎ落とす前のリンクURLがDBに保存されてしまうため、URLを削ぎ落とす
   def slugify

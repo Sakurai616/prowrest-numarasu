@@ -38,6 +38,7 @@
     <div class="flex items-stretch md:px-8 lg:px-10 md:flex justify-end">
       <div class='font-bold text-left md:text-right text-sm md:text-xl self-center'>
         あの感動の瞬間を画像やYouTubeで投稿
+
         <div class="text-center md:p-4">
           <button class="btn btn-accent md:text-xl "><%= link_to "投稿一覧", posts_path %></button>
         </div>
@@ -52,7 +53,8 @@
         </div>
       </div>
     </div>
-    <div class='font-bold text-center text-lg md:text-2xl mt-10 mb-5 md:p-10 text-red-500'>
+
+    <div class='font-bold text-center text-lg md:text-3xl mt-10 mb-5 md:p-10 text-red-500'>
       ログインするとクイズ作成・投稿作成・チャットグループ作成・参加ができます
     </div>
     <% if !logged_in? %>
@@ -63,5 +65,18 @@
         </div>
       </div>
     <% end %>
+
+    <div class="my-14 md:my-20">
+      <div class="font-bold text-center text-xl md:text-4xl md:text-red-500">使い方</div>
+      <div class="font-bold text-center text-xl md:text-2xl pt-12">1. まずは<%= link_to "ログイン", login_path, class: 'text-blue-500' %>してみましょう！（登録がお済みでない方は<%= link_to "新規登録", new_user_path, class: 'text-blue-500' %>）</div>
+    </div> 
+    <div class="my-14 md:my-20">
+      <div class="font-bold text-center text-xl md:text-2xl pt-12">2. 画面一番上の一覧からそれぞれ作成してください！</div>
+      <div class="flex justify-center"><%= video_tag("/videos/use.mp4", autoplay: :true, loop: :true, muted: :true, width: "1000") %></div>
+    </div>
+    <div class="my-14 md:my-20 md:pb-10">
+      <div class="font-bold text-center text-xl md:text-2xl pt-12">3. 自分オリジナルのクイズ、投稿、チャットグループを作成してみましょう！</div>
+      <div class="flex justify-center"><%= image_tag "new-post.png", size:"300x300" %></div>
+    </div> 
   </div>
 </div>

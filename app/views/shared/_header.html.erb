@@ -1,10 +1,15 @@
 <header>
   <div class="navbar bg-accent text-accent-content">
     <div class="navbar-start font-bold text-2xl">
-      <%= link_to t('defaults.prowrest-numarasu'), root_path %>
+      <%= link_to t('defaults.prowrest-numarasu'), about_path %>
     </div>
     <div class="navbar-end">
       <div class="font-bold space-x-6">
+      <div class="dropdown dropdown-hover dropdown-end">
+        <div>
+          <%= link_to t('defaults.about'), about_path %>
+        </div>
+      </div>
         <div class="dropdown dropdown-hover dropdown-end">
           <div>
             <%= link_to t('defaults.question_index'), questions_path %>

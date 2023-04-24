@@ -2,13 +2,14 @@
   <div class="mb-2 text-sm font-medium" >
     <div class="relative mx-auto w-full md:w-2/3">
       <%= form_with model: search_form, url: search_posts_path, scope: :q, method: :get do |f| %>
-        <%= f.search_field :title_or_body, class: 'input input-accent w-full p-4 pl-10 text-sm border border-red-500 rounded-lg', placeholder: (t 'defaults.post') %>
-        <%= f.search_field :tag_name, class: 'input input-accent w-full p-4 pl-10 text-sm border border-red-500 rounded-lg', placeholder: (t 'defaults.tag') %>
-        <div class="text-right">
+       <div class="flex flex-row">
+        <%= f.search_field :title_or_body, class: 'input input-accent w-full p-4 pl-10 text-sm border border-red-500 rounded-lg', placeholder: (t 'defaults.title_or_body') %>
+        <div class="text-right flex flex-row">
           <i class="fa-solid fa-magnifying-glass btn btn-secondary">
             <%= f.submit (t 'defaults.search'), class: 'p-4' %>
           </i>
         </div>
+       </div>
       <% end %>
     </div>
   </div>

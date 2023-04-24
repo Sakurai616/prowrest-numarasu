@@ -1,5 +1,6 @@
 <% content_for(:title, @question.title) %>
 <div class="bg-stone-100 p-4 m-4">
+  <%= link_to "＜クイズ一覧", questions_path, class: 'font-bold text-2xl text-blue-500' %>
   <div class="py-6 sm:py-8 lg:py-12">
     <h2 class="text-accent-content text-2xl lg:text-3xl font-bold text-center text-red-500 text-5xl"><%= @question.title %></h2>
     <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
@@ -12,14 +13,16 @@
         <% elsif @question.url.present? %>
           <iframe width="500" height="390" src="https://www.youtube.com/embed/<%= @question.url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <% elsif %>
-          <h2 class="text-accent-content text-5xl font-bold text-center text-black text-5xl my-auto">画像・動画なし</h2>
+          <h2 class="text-accent-content text-5xl font-bold text-center text-black text-5xl my-auto"><%= @question.sentence %></h2>
         <% end %>
       </div>
     </div>
   </div>
 
   <div>
-    <p class="text-accent text-center md:text-2xl font-bold md:m-auto"><%= @question.sentence %></p>
+    <% if @question.image.present? || @question.url.present? %>
+      <p class="text-accent text-center md:text-2xl font-bold md:m-auto"><%= @question.sentence %></p>
+    <% end %>
     <div class="text-center pt-16">
       <div class="md:space-x-20">
         <% @question.choices.each do |choice| %>

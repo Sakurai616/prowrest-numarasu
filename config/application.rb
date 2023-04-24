@@ -22,6 +22,8 @@ module ProwrestNumarasu
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.action_cable.mount_path = '/cable'
+
 
     # タイムゾーン設定
     config.time_zone = 'Tokyo'
