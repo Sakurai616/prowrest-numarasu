@@ -1,0 +1,23 @@
+<% if @organization_posts.present? %>
+  <% @organization_posts.each do |post| %>
+    <div class="p-6">
+    <div class="card card-compact hover:bg-stone-100 rounded-lg shadow-lg mb-2 sm:mb-4">
+      <% if post.image.present? %>
+        <%= link_to image_tag(post.image.url), post_path(post), class: 'w-full h-full object-cover object-center' %>
+      <% end %>
+      <% if post.url.present? %>
+        <iframe width="300" height="300" src="https://www.youtube.com/embed/<%= post.url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <% end %>
+      <%= link_to post.title, post_path(post), class: 'text-accent hover:text-blue-500 md:text-xl font-bold md:m-auto' %>
+      <div class="text-right mr-12">
+        <%= render 'actions/like_button', { post: post } %>
+        <%= render partial: 'organizations/organization', locals: { post: post } %>
+      </div>
+      <div class="pt-4 space-x-3">
+        <%= render post.tags %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+<% else %>
+  

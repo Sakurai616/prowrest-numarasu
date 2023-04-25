@@ -21,6 +21,7 @@ ja:
         image: "画像"
         url: "YouTube"
         tag_names: "タグ"
+        organization: "*団体"
       question:
         title: "*タイトル"
         image: "画像"

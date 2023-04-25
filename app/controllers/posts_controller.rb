@@ -5,18 +5,24 @@ class PostsController < ApplicationController
   def index
     posts = if (tag_name = params[:tag_name])
               Post.with_tag(tag_name)
+            elsif (organization_name = params[:organization_name])
+              Post.with_organization(organization_name)
             else
               Post.all
             end
     @posts = posts.includes(:user).order(created_at: :desc).page(params[:page])
+    @organizations = Organization.all
+    @organization_posts = Post.includes(:organization).where(organization_id: params[:organization_id]).order(created_at: :desc).page(params[:page])
   end
 
   def new
     @post = Post.new
+    @post.build_organization
   end
 
   def create
     @post = current_user.posts.build(post_params)
+    @post.organization_id = params.dig(:post, :organization, :organization_id)
     if @post.save_with_tags(tag_names: params.dig(:post, :tag_names).split(',').uniq)
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
@@ -37,6 +43,7 @@ class PostsController < ApplicationController
 
   def update
     @post.assign_attributes(post_params)
+    @post.organization_id = params.dig(:post, :organization, :organization_id)
     if @post.save_with_tags(tag_names: params.dig(:post, :tag_names).split(',').uniq)
       redirect_to post_path(@post), success: t('defaults.message.updated', item: Post.model_name.human)
     else
@@ -58,7 +65,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :image_cache, :url, :title, :body)
+    params.require(:post).permit(:image, :image_cache, :url, :title, :body, categories_attributes: [:id])
   end
 
   def set_post

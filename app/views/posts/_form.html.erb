@@ -21,6 +21,14 @@
     <%= f.label :tag_names, class: 'font-bold' %>
     <%= f.text_field :tag_names, class: 'input input-accent', value: @tag_list, placeholder: (t 'defaults.tag_form') %>
   </div>
+  <div class="form-control mb-10">
+    <%= f.label :organization, class: 'font-bold' %>
+    <%= f.fields_for :organization do |i| %>
+      <%= i.select :organization_id, [["新日", 1], ["全日", 2], ["ノア", 3], ["ドラゲー", 4], ["ZERO1", 5], ["大日", 6], ["DDT", 7], ["FREEDOMS", 8], ["GLEAT", 9], ["W-1", 10], ["みちのく", 11], 
+                                  ["スターダム", 12], ["東京女子", 13], ["OZ", 14], ["アイスリボン", 15], ["WAVE", 16], ["PURE-J", 17], ["マーベラス", 18], ["我闘雲舞", 19], ["アクトレスガールズ", 20],
+                                  ["その他", 21]], prompt: "団体を選択してください", class: "form-control" %>
+    <% end %>
+  </div>
   <p class="text-sm text-end">*必須項目</p>
   <%= f.submit class: 'btn btn-block btn-secondary mt-10 mb-20 lg:mb-10'%>
 <% end %>
