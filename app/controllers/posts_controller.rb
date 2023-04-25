@@ -60,6 +60,7 @@ class PostsController < ApplicationController
   def search
     @search_form = SearchPostsForm.new(search_post_params)
     @posts = @search_form.search.includes(:user).order(created_at: :desc).page(params[:page])
+    @organizations = Organization.all
   end
 
   private
