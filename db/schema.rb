@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_25_102620) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_25_152854) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,6 +30,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_102620) do
     t.integer "owner_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "organization_id", null: false
+    t.index ["organization_id"], name: "index_chat_groups_on_organization_id"
   end
 
   create_table "choices", force: :cascade do |t|
@@ -134,6 +136,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_102620) do
 
   add_foreign_key "chat_group_users", "chat_groups"
   add_foreign_key "chat_group_users", "users"
+  add_foreign_key "chat_groups", "organizations"
   add_foreign_key "choices", "questions"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"

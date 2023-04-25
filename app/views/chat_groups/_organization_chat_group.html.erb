@@ -1,0 +1,26 @@
+<% if @organization_chat_groups.present? %>
+  <% @organization_chat_groups.each do |chat_group| %>
+    <div class="p-6">
+      <div class="card card-compact hover:bg-stone-100 rounded-lg shadow-lg mb-2 sm:mb-4">
+        <% if chat_group.image.present? %>
+          <%= link_to image_tag(chat_group.image.url), chat_group_path(chat_group.id) %>
+        <% end %>
+        <%= link_to chat_group_path(chat_group.id) do %>
+          <div class="text-accent md:text-xl font-bold md:m-auto">
+            <div class="flex justify-center">
+              <%= chat_group.group_name %>(<%= chat_group.users.count %>)
+            </div>
+            <div class="pt-4 text-center text-secondary hover:text-blue-500 md:text-xl font-bold md:m-auto">
+              <%= chat_group.group_description %>
+            </div>
+          </div>
+        <% end %>
+        <div>
+          <%= render partial: 'organizations/chat_group_organization', locals: { chat_group: chat_group } %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <h1 class="text-md lg:text-2xl font-bold text-center md:mb-6"><%= (t 'defaults.no_organization')%></h1>
+<% end %>
