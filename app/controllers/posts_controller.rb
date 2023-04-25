@@ -17,7 +17,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @post.build_organization
   end
 
   def create
@@ -66,7 +65,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :image_cache, :url, :title, :body, categories_attributes: [:id])
+    params.require(:post).permit(:image, :image_cache, :url, :title, :body)
   end
 
   def set_post

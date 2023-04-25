@@ -23,13 +23,14 @@ ja:
         tag_names: "タグ"
         organization: "*団体"
       question:
-        title: "*タイトル"
+        title: "タイトル"
         image: "画像"
         url: "YouTube"
-        sentence: "問題文"
+        sentence: "*問題文"
         increase: "＋選択肢を増やす"
+        organization: "*団体"
       choice:
-        body: "選択肢"
+        body: "*選択肢"
         correct_answer: "正解・不正解"
         delete: "削除"
         correct: "正解"

@@ -4,5 +4,8 @@
     <div class="pt-4 text-center">
       <%= link_to question.sentence, question_path(question), class: 'text-secondary hover:text-blue-500 md:text-xl font-bold md:m-auto' %>
     </div>
+    <div>
+      <%= render partial: 'organizations/question_organization', locals: { question: question } %>
+    </div>
   </div>
 </div>
