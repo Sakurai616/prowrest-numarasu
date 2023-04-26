@@ -9,6 +9,12 @@
     <div class="m-8">
       <%= render 'search_chat_group_form', search_form: @search_form %>
     </div>
+    <p class="text-center text-green-500 font-bold text-2xl">団体一覧</p>
+    <div class="text-green-500 font-bold text-lg pt-5">
+      <% @organizations.each do |organization| %>
+        <%= organization.name %>
+      <% end %>
+    </div>
     <% if @chat_groups.present? %>
       <div class="grid grid-cols-2 mb-20 md:mb-10 md:grid-cols-3 gap-x-4 lg:gap-x-8 gap-y-8 lg:gap-y-12 bg-stone-50">
         <%= render @chat_groups %>

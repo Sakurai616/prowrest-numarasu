@@ -1,8 +1,9 @@
 <div class="p-6">
   <div class="card card-compact hover:bg-stone-100 rounded-lg shadow-lg mb-2 sm:mb-4">
-    <%= link_to question.title, question_path(question), class: 'text-accent hover:text-red-500 md:text-xl font-bold md:m-auto' %>
+    <%= render partial: 'organizations/question_organization', locals: { question: question } %>
+    <%= link_to question.title, question_path(question), class: 'text-accent hover:text-blue-500 md:text-xl font-bold md:m-auto' %>
     <div class="pt-4 text-center">
-      <%= link_to question.sentence, question_path(question), class: 'text-secondary hover:text-blue-500 md:text-xl font-bold md:m-auto' %>
+      <%= link_to question.sentence, question_path(question), class: 'text-secondary hover:text-red-500 md:text-xl font-bold md:m-auto' %>
     </div>
   </div>
 </div>

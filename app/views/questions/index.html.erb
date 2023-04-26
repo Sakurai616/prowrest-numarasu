@@ -9,11 +9,30 @@
     <div class="m-8">
       <%= render 'search_question_form', search_form: @search_form %>
     </div>
+    <p class="text-center text-green-500 font-bold text-2xl">団体一覧</p>
+    <div class="text-green-500 font-bold text-lg pt-5">
+      <% @organizations.each do |organization| %>
+        <%= organization.name %>
+      <% end %>
+    </div>
+    <div class="pt-5">
+      <%= form_tag(questions_path, method: "get") do %>
+        <%= select_tag :organization_id, options_from_collection_for_select(@organizations, "id", "name", params[:organization_id]), prompt: "団体を選択してください", class: "form-control" %>
+        <div class="pl-28 pb-16">
+          <%= submit_tag "絞り込み", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
     <div class="grid grid-cols-2 mb-20 md:mb-10 md:grid-cols-3 gap-x-4 lg:gap-x-8 gap-y-8 lg:gap-y-12 bg-stone-50">
+     <% if params[:organization_id] %>
+      <%= render partial: 'questions/organization_question', locals: { question: @question } %>
+     <% else %>
       <%= render @questions %>
+     <% end %>
     </div>
     <div>
       <%= paginate @questions %>
+      <%= paginate @organization_questions %>
     </div>
   </div>
 </div>

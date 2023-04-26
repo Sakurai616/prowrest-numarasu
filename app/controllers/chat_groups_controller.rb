@@ -2,7 +2,14 @@ class ChatGroupsController < ApplicationController
   before_action :ensure_correct_user, only: %i[edit update]
 
   def index
-    @chat_groups = ChatGroup.includes(:chat_group_users).order(created_at: :desc).page(params[:page])
+    chat_groups = if (organization_name = params[:organization_name])
+                    ChatGroup.with_organization(organization_name)
+                  else
+                    ChatGroup.all
+    end
+    @chat_groups = chat_groups.includes(:chat_group_users).order(created_at: :desc).page(params[:page])
+    @organizations = Organization.all
+    @organization_chat_groups = ChatGroup.includes(:organization).where(organization_id: params[:organization_id]).order(created_at: :desc).page(params[:page])
   end
 
   def new 
@@ -16,7 +23,8 @@ class ChatGroupsController < ApplicationController
   end
 
   def create
-    @chat_group = ChatGroup.new(chat_group_params)
+    @chat_group = current_user.chat_groups.build(chat_group_params)
+    @chat_group.organization_id = params.dig(:chat_group, :organization, :organization_id)
     @chat_group.owner_id = current_user.id
     @chat_group.users << current_user
     if @chat_group.save
@@ -35,6 +43,7 @@ class ChatGroupsController < ApplicationController
   def edit; end
 
   def update
+    @chat_group.organization_id = params.dig(:chat_group, :organization, :organization_id)
     if @chat_group.update(chat_group_params)
       redirect_to chat_groups_path, success: t('defaults.message.updated', item: ChatGroup.model_name.human)
     else
@@ -58,6 +67,7 @@ class ChatGroupsController < ApplicationController
   def search
     @search_form = SearchChatGroupsForm.new(search_chat_group_params)
     @chat_groups = @search_form.search.includes(:chat_group_users).order(created_at: :desc).page(params[:page])
+    @organizations = Organization.all
   end
 
   private

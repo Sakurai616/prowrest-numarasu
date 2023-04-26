@@ -3,12 +3,13 @@
     <% if chat_group.image.present? %>
       <%= link_to image_tag(chat_group.image.url), chat_group_path(chat_group.id) %>
     <% end %>
+    <%= render partial: 'organizations/chat_group_organization', locals: { chat_group: chat_group } %>
     <%= link_to chat_group_path(chat_group.id) do %>
       <div class="text-accent md:text-xl font-bold md:m-auto">
-        <div class="flex justify-center">
+        <div class="flex justify-center hover:text-blue-500">
           <%= chat_group.group_name %>(<%= chat_group.users.count %>)
         </div>
-        <div class="pt-4 text-center text-secondary hover:text-blue-500 md:text-xl font-bold md:m-auto">
+        <div class="pt-4 text-center text-secondary hover:text-red-500 md:text-xl font-bold md:m-auto">
           <%= chat_group.group_description %>
         </div>
       </div>

@@ -32,6 +32,7 @@ ja:
     title_or_body: "タイトルまたは本文"
     title_or_sentence: "タイトルまたは問題文"
     name_or_description: "グループ名または説明"
+    no_organization: "検索団体はありません"
     about: "サービス紹介"
     terms_of_use: "利用規約"
     privacy_policy: "プライバシーポリシー"

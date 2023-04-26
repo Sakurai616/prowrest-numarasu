@@ -5,10 +5,14 @@ class PostsController < ApplicationController
   def index
     posts = if (tag_name = params[:tag_name])
               Post.with_tag(tag_name)
+            elsif (organization_name = params[:organization_name])
+              Post.with_organization(organization_name)
             else
               Post.all
             end
     @posts = posts.includes(:user).order(created_at: :desc).page(params[:page])
+    @organizations = Organization.all
+    @organization_posts = Post.includes(:organization).where(organization_id: params[:organization_id]).order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -17,6 +21,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    @post.organization_id = params.dig(:post, :organization, :organization_id)
     if @post.save_with_tags(tag_names: params.dig(:post, :tag_names).split(',').uniq)
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
@@ -37,6 +42,7 @@ class PostsController < ApplicationController
 
   def update
     @post.assign_attributes(post_params)
+    @post.organization_id = params.dig(:post, :organization, :organization_id)
     if @post.save_with_tags(tag_names: params.dig(:post, :tag_names).split(',').uniq)
       redirect_to post_path(@post), success: t('defaults.message.updated', item: Post.model_name.human)
     else
@@ -53,6 +59,7 @@ class PostsController < ApplicationController
   def search
     @search_form = SearchPostsForm.new(search_post_params)
     @posts = @search_form.search.includes(:user).order(created_at: :desc).page(params[:page])
+    @organizations = Organization.all
   end
 
   private

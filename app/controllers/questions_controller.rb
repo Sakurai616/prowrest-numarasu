@@ -3,7 +3,14 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: %i[edit update destroy]
 
   def index
-    @questions = Question.includes(:user).order(created_at: :desc).page(params[:page])
+    questions = if (organization_name = params[:organization_name])
+                  Question.with_organization(organization_name)
+                else
+                  Question.all
+                end
+    @questions = questions.includes(:user).order(created_at: :desc).page(params[:page])
+    @organizations = Organization.all
+    @organization_questions = Question.includes(:organization).where(organization_id: params[:organization_id]).order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -12,7 +19,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(question_params)
+    @question = current_user.questions.build(question_params)
+    @question.organization_id = params.dig(:question, :organization, :organization_id)
     if @question.save
       redirect_to questions_path, success: t('defaults.message.created', item: Question.model_name.human)
     else
@@ -29,6 +37,7 @@ class QuestionsController < ApplicationController
   def edit; end
 
   def update
+    @question.organization_id = params.dig(:question, :organization, :organization_id)
     if @question.update(update_question_params)
       redirect_to questions_path, success: t('defaults.message.updated', item: Question.model_name.human)
     else
@@ -45,6 +54,7 @@ class QuestionsController < ApplicationController
   def search
     @search_form = SearchQuestionsForm.new(search_question_params)
     @questions = @search_form.search.includes(:user).order(created_at: :desc).page(params[:page])
+    @organizations = Organization.all
   end
 
   private
