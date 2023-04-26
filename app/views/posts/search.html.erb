@@ -9,8 +9,8 @@
     <div class="m-8">
       <%= render 'search_post_form', search_form: @search_form %>
     </div>
-    <p class="text-center">団体一覧</p>
-    <div>
+    <p class="text-center text-green-500 font-bold text-2xl">団体一覧</p>
+    <div class="text-green-500 font-bold text-lg pt-5">
       <% @organizations.each do |organization| %>
         <%= organization.name %>
       <% end %>

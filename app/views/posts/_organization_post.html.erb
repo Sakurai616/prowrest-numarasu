@@ -8,10 +8,10 @@
       <% if post.url.present? %>
         <iframe width="300" height="300" src="https://www.youtube.com/embed/<%= post.url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <% end %>
+      <%= render partial: 'organizations/post_organization', locals: { post: post } %>
       <%= link_to post.title, post_path(post), class: 'text-accent hover:text-blue-500 md:text-xl font-bold md:m-auto' %>
       <div class="text-right mr-12">
         <%= render 'actions/like_button', { post: post } %>
-        <%= render partial: 'organizations/post_organization', locals: { post: post } %>
       </div>
       <div class="pt-4 space-x-3">
         <%= render post.tags %>

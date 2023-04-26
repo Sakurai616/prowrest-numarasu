@@ -5,6 +5,7 @@
         <% if chat_group.image.present? %>
           <%= link_to image_tag(chat_group.image.url), chat_group_path(chat_group.id) %>
         <% end %>
+        <%= render partial: 'organizations/chat_group_organization', locals: { chat_group: chat_group } %>
         <%= link_to chat_group_path(chat_group.id) do %>
           <div class="text-accent md:text-xl font-bold md:m-auto">
             <div class="flex justify-center">
@@ -15,9 +16,6 @@
             </div>
           </div>
         <% end %>
-        <div>
-          <%= render partial: 'organizations/chat_group_organization', locals: { chat_group: chat_group } %>
-        </div>
       </div>
     </div>
   <% end %>
