@@ -10,9 +10,11 @@
       <%= render 'search_chat_group_form', search_form: @search_form %>
     </div>
     <p class="text-center text-green-500 font-bold text-2xl">団体一覧</p>
-    <div class="text-green-500 font-bold text-lg pt-5">
+    <div class="pt-5">
       <% @organizations.each do |organization| %>
-        <%= organization.name %>
+        <div class="badge bg-primary rounded-none font-bold">
+          <%= organization.name %>
+        </div>
       <% end %>
     </div>
     <div class="pt-5">
