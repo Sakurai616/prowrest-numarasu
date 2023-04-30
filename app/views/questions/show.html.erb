@@ -1,4 +1,4 @@
-<% set_meta_tags description: @question.sentence %>
+<% content_for(:title, @question.sentence) %>
 <div class="bg-stone-100 p-4 m-4">
   <%= link_to "＜クイズ一覧", questions_path, class: 'font-bold text-2xl text-blue-500' %>
   <div class="py-6 sm:py-8 lg:py-12">

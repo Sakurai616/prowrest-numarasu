@@ -1,4 +1,10 @@
 module ApplicationHelper
+  def page_title(page_title = '')
+    base_title = 'プロレスヌマラス'
+
+    page_title.empty? ? base_title : page_title
+  end
+
   def default_meta_tags
     {
       site: "プロレスヌマラス",
@@ -9,7 +15,6 @@ module ApplicationHelper
       keywords: "プロレス, プロレスファン, プロレスクイズ",
       charset: "UTF-8",
       canonical: request.original_url,
-      noindex: !Rails.env.production?,
       og: {
         site_name: "プロレスヌマラス",
         title: "プロレスファンに出会いを",
@@ -21,7 +26,8 @@ module ApplicationHelper
       },
       twitter: {
         card: 'summary_large_image',
-        site: '@N7sUjYSKfiBxz47',
+        site: '@',
+        image: image_url('ogp.png'),
       }
     }
   end
