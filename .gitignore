@@ -41,5 +41,5 @@
 
 /node_modules
 
-# Ignore sitemap
-sitemap.xml.gz
+# Ignore sitemap.xml
+public/sitemap.xml.gz

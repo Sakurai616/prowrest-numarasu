@@ -10,11 +10,13 @@
       <%= render 'search_post_form', search_form: @search_form %>
     </div>
     <p class="text-center text-green-500 font-bold text-2xl">団体一覧</p>
-    <div class="text-green-500 font-bold text-lg pt-5">
-      <% @organizations.each do |organization| %>
-        <%= organization.name %>
-      <% end %>
-    </div>
+      <div class="pt-5">
+        <% @organizations.each do |organization| %>
+          <div class="badge bg-primary rounded-none font-bold">
+            <%= organization.name %>
+          </div>
+        <% end %>
+      </div>
     <div class="pt-5">
       <%= form_tag(posts_path, method: "get") do %>
         <%= select_tag :organization_id, options_from_collection_for_select(@organizations, "id", "name", params[:organization_id]), prompt: "団体を選択してください", class: "form-control" %>
