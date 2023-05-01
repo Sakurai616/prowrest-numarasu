@@ -5,3 +5,4 @@ import "./controllers"
 import jquery from "jquery";
 window.$ = window.jQuery = jquery;
 import "@rails/actioncable"
+import "./channels"
