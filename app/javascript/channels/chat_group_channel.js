@@ -1,5 +1,5 @@
 import consumer from "./consumer"
-
+import $ from "jquery";
 $(function(){
   const chatChannel = consumer.subscriptions.create({ channel: "ChatGroupChannel", chat_group: $('#messages').data('chat_group_id') }, {
     connected() {
