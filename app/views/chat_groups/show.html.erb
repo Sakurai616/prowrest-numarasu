@@ -19,13 +19,9 @@
   </div>
 </div>
 <div id="messages" data-chat_group_id="<%= @chat_group.id %>">
-  <% if @messages.present? %>
-    <div class="pt-10">
-      <%= render @messages %>
-    </div>
-  <% else %>
-    <h2 class="font-bold text-center text-5xl m-40">チャットがまだありません...</h2>
-  <% end %>
+  <div class="pt-10">
+    <%= render @messages %>
+  </div>
 </div>
 
 <% if @chat_group.users.include?(current_user) %>
