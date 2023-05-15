@@ -2,11 +2,13 @@
   <div class="flex items-end">
    <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start pt-10">
      <div class="chat chat-start">
-        <div><span class="chat-bubble chat-bubble-secondary"><%= message.body %></span></div>
+        <div>
+          <span class="chat-bubble chat-bubble-secondary"><%= message.body %></span>
+          <%= I18n.l(message.created_at, format: :long) %>
+        </div>
      </div>
    </div>
    <%= image_tag message.user.avatar_url, class: "rounded-full", size: '50x50' %>
   </div>
   <span><%= message.user.name %></span>
-  <span class="pl-28"><%= I18n.l(message.created_at, format: :long) %></span>
 </div>
