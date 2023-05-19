@@ -9,8 +9,7 @@ class ChatGroupChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    # jsで実行されたspeakのmessageを受け取り、chat_group_channelのreceivedにブロードキャストする
-    message = Message.create! body: data['message'], user_id: current_user.id, chat_group_id: params['chat_group']
-    MessageBroadcastJob.perform_later(data['message'], params['chat_group'])
+    # jsで実行されたspeakのmessage、chat_group_idを受け取り、chat_group_channelのreceivedにブロードキャストする
+    Message.create! body: data['message'], user_id: current_user.id, chat_group_id: data['chat_group_id']
   end
 end

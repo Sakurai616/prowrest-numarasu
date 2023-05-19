@@ -18,14 +18,12 @@
     <% end %>
   </div>
 </div>
+
+<%#ここの data-chat_group_id を使ってjs側で部屋を見分ける %>
 <div id="messages" data-chat_group_id="<%= @chat_group.id %>">
-  <% if @messages.present? %>
-    <div class="pt-10">
-      <%= render @messages %>
-    </div>
-  <% else %>
-    <h2 class="font-bold text-center text-5xl m-40">チャットがまだありません...</h2>
-  <% end %>
+  <div class="pt-10">
+    <%= render @messages %>
+  </div>
 </div>
 
 <% if @chat_group.users.include?(current_user) %>
@@ -33,7 +31,8 @@
       <div class="relative flex">
         <div class="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-12 bg-gray-200 rounded-md py-3">
         <form>
-          <input type="text" data-behavior="chat_group_speaker">
+          <input type="text" data-behavior="chat_group_speaker" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+          <input id="chat_group_id" type="hidden" name="chat_group_id" value="<%= @chat_group.id %>">
         </form>
         </div>
       </div>

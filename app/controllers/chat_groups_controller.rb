@@ -19,7 +19,7 @@ class ChatGroupsController < ApplicationController
   def join
     @chat_group = ChatGroup.find(params[:chat_group_id])
     @chat_group.users << current_user
-    redirect_to chat_groups_path, success: t('defaults.join_chat_group')
+    redirect_to chat_group_path(@chat_group), success: t('defaults.join_chat_group')
   end
 
   def create
