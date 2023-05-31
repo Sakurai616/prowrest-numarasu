@@ -10,8 +10,11 @@
   </div>
   <div class="form-control mb-10">
     <%= f.label :image, class: 'font-bold' %>
-    <%= f.file_field :image, class: 'file-input file-input-bordered file-input-accent w-full max-w-xs' %>
+    <%= f.file_field :image, onchange: 'imagePreview(event)', accept: 'image/*', class: 'file-input file-input-bordered file-input-accent w-full max-w-xs' %>
     <%= f.hidden_field :image_cache %>
+  </div>
+  <div class="form-control mb-10">
+    <div id="preview"></div>
   </div>
   <div class="form-control mb-10">
     <%= f.label :url, class: 'font-bold' %>
@@ -32,3 +35,23 @@
   <p class="text-sm text-end">*必須項目</p>
   <%= f.submit class: 'btn btn-block btn-secondary mt-10 mb-20 lg:mb-10'%>
 <% end %>
+
+<script>
+function imagePreview(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    const preview = document.getElementById("preview");
+    const previewImage = document.getElementById("previewImage");
+
+    if (previewImage != null) {
+        preview.removeChild(previewImage);
+    }
+    reader.onload = function() {
+        const image = document.createElement("img");
+        image.setAttribute("src", reader.result);
+        image.setAttribute("id", "previewImage");
+        preview.appendChild(image);
+    };
+    reader.readAsDataURL(file);
+}
+</script>
