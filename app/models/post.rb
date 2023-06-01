@@ -19,7 +19,7 @@ class Post < ApplicationRecord
   scope :body_contain, ->(word) { where('posts.body LIKE ?', "%#{word}%") }
   scope :with_organization, ->(organization_name) { joins(:organization).where(organizations: { name: organization_name }) }
 
-  #YouTubeURLを更新する際に、削ぎ落とす前のリンクURLがDBに保存されてしまうため、URLを削ぎ落とす
+  # YouTubeURLを更新する際に、削ぎ落とす前のリンクURLがDBに保存されてしまうため、URLを削ぎ落とす
   def slugify
     self.url = url.last(11)
   end

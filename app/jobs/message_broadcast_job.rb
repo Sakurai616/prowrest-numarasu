@@ -7,6 +7,7 @@ class MessageBroadcastJob < ApplicationJob
   end
 
   private
+
   # app/views/message/_message.html.erbを呼び出す。
   def render_message(message)
     ApplicationController.renderer.render(partial: 'messages/message', locals: { message: message })

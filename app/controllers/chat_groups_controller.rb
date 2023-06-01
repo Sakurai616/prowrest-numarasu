@@ -6,13 +6,13 @@ class ChatGroupsController < ApplicationController
                     ChatGroup.with_organization(organization_name)
                   else
                     ChatGroup.all
-    end
+                  end
     @chat_groups = chat_groups.includes(:chat_group_users).order(created_at: :desc).page(params[:page])
     @organizations = Organization.all
     @organization_chat_groups = ChatGroup.includes(:organization).where(organization_id: params[:organization_id]).order(created_at: :desc).page(params[:page])
   end
 
-  def new 
+  def new
     @chat_group = ChatGroup.new
   end
 
@@ -86,5 +86,4 @@ class ChatGroupsController < ApplicationController
   def search_chat_group_params
     params.fetch(:q, {}).permit(:group_name_or_group_description)
   end
-    
 end
