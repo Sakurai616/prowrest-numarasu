@@ -10,6 +10,7 @@ ja:
     show: "投稿詳細"
     edit: "投稿編集"
     comment: "コメント"
+    likes: "いいね一覧"
     question: "クイズ"
     prowrest-question: "プロレスクイズ"
     question_index: "クイズ一覧"
@@ -58,6 +59,9 @@ ja:
     create: 
       success: "ユーザー登録が完了しました"
       fail: 'ユーザー登録に失敗しました'
+    likes:
+      title: "いいね一覧"
+      no_result: "いいねした投稿はありません"
   profiles:
     show:
       title: "プロフィール"

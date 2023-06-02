@@ -15,6 +15,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def likes
+    @like_posts = current_user.like_posts.order(created_at: :desc).page(params[:page])
+  end
+
   private
 
   def user_params

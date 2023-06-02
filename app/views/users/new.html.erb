@@ -18,7 +18,7 @@
           </div>
           <div class="form-control mb-10">
             <%= f.label :avatar, class: 'font-bold' %>
-            <%= f.file_field :avatar, onchange: 'imagePreview(event)', accept: 'image/*', class: 'file-input file-input-bordered file-input-accent w-full max-w-xs' %>
+            <%= f.file_field :avatar, onchange: 'imagePreview(event)', class: 'file-input file-input-bordered file-input-accent w-full max-w-xs' %>
             <%= f.hidden_field :avatar_cache %>
           </div>
           <div class="form-control mb-10">
