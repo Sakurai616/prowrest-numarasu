@@ -35,6 +35,7 @@
         <button class="btn btn-secondary md:text-lg"><%= link_to (t 'defaults.question_edit'), edit_question_path %></button>
         <button class="btn btn-accent md:text-base"><%= link_to (t 'defaults.delete'), question_path(@question), data: { turbo_method: :delete, turbo_confirm: t('defaults.message.delete_confirm') } %></button>
       <% end %>
+      <%= render partial: 'twitter', locals: { question: @question } %>
     </div>
   </div>
 </div>
