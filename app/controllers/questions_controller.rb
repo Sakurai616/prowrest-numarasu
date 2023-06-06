@@ -64,11 +64,11 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:title, :image, :image_cache, :url, :sentence, choices_attributes: %i[body correct_answer]).merge(user_id: current_user.id)
+    params.require(:question).permit(:title, :image, :image_cache, :url, :sentence, :hint, choices_attributes: %i[body correct_answer]).merge(user_id: current_user.id)
   end
 
   def update_question_params
-    params.require(:question).permit(:title, :image, :image_cache, :url, :sentence, choices_attributes: %i[body correct_answer _destroy id]).merge(user_id: current_user.id)
+    params.require(:question).permit(:title, :image, :image_cache, :url, :sentence, :hint, choices_attributes: %i[body correct_answer _destroy id]).merge(user_id: current_user.id)
   end
 
   def search_question_params

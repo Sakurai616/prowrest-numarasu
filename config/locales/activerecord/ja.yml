@@ -29,6 +29,7 @@ ja:
         sentence: "*問題文"
         increase: "＋選択肢を増やす"
         organization: "*団体（編集時も必ず選択してください）"
+        hint: "ヒント"
       choice:
         body: "*選択肢"
         correct_answer: "正解・不正解"

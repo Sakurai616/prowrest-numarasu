@@ -23,6 +23,11 @@
     <% if @question.image.present? || @question.url.present? %>
       <p class="text-accent text-center md:text-2xl font-bold md:m-auto"><%= @question.sentence %></p>
     <% end %>
+    <% if @question.hint.present? %>
+      <p class="text-center md:text-2xl font-bold md:m-auto">ヒント：<%= @question.hint %></p>
+    <% else %>
+      <p class="text-center md:text-2xl font-bold md:m-auto">ヒントはありません</p>
+    <% end %>
     <div class="text-center pt-16">
       <div class="md:space-x-20">
         <% @question.choices.each do |choice| %>
