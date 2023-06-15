@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-sm-12 mb-4">
-    <%= form_with model: [post, comment], local: true do |f| %>
+    <%= form_with model: [post, comment], id: 'new_comment' do |f| %>
       <div class="text-center">
-        <%= f.text_area :body, class: 'input input-accent w-7/12', row: 4, placeholder: Comment.human_attribute_name(:body) %>
+        <%= f.text_area :body, class: 'input input-accent w-7/12', row: 4, placeholder: Comment.human_attribute_name(:body), id: 'js-new-comment-body' %>
       </div>
       <div class="text-right pr-72">
         <%= f.submit t('defaults.comment'), class: 'btn btn-primary text-white font-bold' %>
