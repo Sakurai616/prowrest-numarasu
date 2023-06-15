@@ -9,7 +9,7 @@
     <div>
   </td>
 
-  <% if comment.user == current_user %>
+  <% if current_user.own?(comment) %>
     <td>
       <ul class="list-inline justify-content-center" style="float: right;">
         <li class="list-inline-item">

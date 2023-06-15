@@ -21,9 +21,13 @@
 
 <%#ここの data-chat_group_id を使ってjs側で部屋を見分ける %>
 <div id="messages" data-chat_group_id="<%= @chat_group.id %>">
-  <div class="pt-10">
-    <%= render @messages %>
-  </div>
+  <% if @messages.present? %>
+    <div class="pt-10">
+      <%= render @messages %>
+    </div>
+  <% else %>
+    <h2 class="font-bold text-center text-5xl m-40">チャットがまだありません...</h2>
+  <% end %>
 </div>
 
 <% if @chat_group.users.include?(current_user) %>
