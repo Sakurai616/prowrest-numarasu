@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
       get 'organization_search'
+      get 'like_rank'
     end
   end
 
@@ -38,7 +39,6 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
-    resources :messages, only: %i[create]
   end
   mount ActionCable.server => '/cable'
 end
