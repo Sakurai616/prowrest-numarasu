@@ -62,6 +62,11 @@ class PostsController < ApplicationController
     @organizations = Organization.all
   end
 
+  def like_rank
+    posts = Post.includes(:liking_users).sort{|a,b| b.liking_users.size <=> a.liking_users.size}
+    @posts = Kaminari.paginate_array(posts).page(params[:page])
+  end
+
   private
 
   def post_params

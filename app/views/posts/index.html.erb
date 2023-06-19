@@ -25,6 +25,9 @@
         </div>
       <% end %>
     </div>
+    <div class="flex flex-row-reverse">
+      <button><%= link_to "いいね順", like_rank_posts_path, class: "btn btn-accent font-bold" %></button>
+    </div>
     <div class="grid grid-cols-2 mb-20 md:mb-10 md:grid-cols-3 gap-x-4 lg:gap-x-8 gap-y-8 lg:gap-y-12 bg-stone-50">
      <% if params[:organization_id] %>
       <%= render partial: 'posts/organization_post', locals: { post: @post } %>
