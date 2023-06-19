@@ -22,11 +22,11 @@
         <%= select_tag :organization_id, options_from_collection_for_select(@organizations, "id", "name", params[:organization_id]), prompt: "団体を選択してください", class: "form-control" %>
         <div class="pl-28 pb-16">
           <%= submit_tag "絞り込み", class: "btn btn-primary" %>
+          <div class="flex flex-row-reverse">
+            <button><%= link_to t('.like_rank'), like_rank_posts_path, class: "flex flex-row-reverse btn btn-accent font-bold" %></button>
+          </div>
         </div>
       <% end %>
-    </div>
-    <div class="flex flex-row-reverse">
-      <button><%= link_to "いいね順", like_rank_posts_path, class: "btn btn-accent font-bold" %></button>
     </div>
     <div class="grid grid-cols-2 mb-20 md:mb-10 md:grid-cols-3 gap-x-4 lg:gap-x-8 gap-y-8 lg:gap-y-12 bg-stone-50">
      <% if params[:organization_id] %>

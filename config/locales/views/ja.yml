@@ -80,6 +80,7 @@ ja:
   posts:
     index:
       title: "投稿一覧"
+      like_rank: "いいね順"
     new: 
       title: "投稿作成"
     show:
@@ -91,6 +92,8 @@ ja:
       title: "投稿一覧"
       no_result: "検索結果がありません"
       search_result: "検索結果"
+    like_rank:
+      title: "いいね順"
   questions:
     index:
       title: "クイズ一覧"
