@@ -2,11 +2,7 @@
   <%= render 'shared/error_messages', object: f.object %>
   <div class="form-control mb-10">
     <%= f.label :organization, class: 'font-bold' %>
-    <%= f.fields_for :organization do |i| %>
-      <%= i.select :organization_id, [["新日", 1], ["全日", 2], ["ノア", 3], ["ドラゲー", 4], ["ZERO1", 5], ["大日", 6], ["DDT", 7], ["FREEDOMS", 8], ["GLEAT", 9], ["W-1", 10], ["みちのく", 11], 
-                                  ["スターダム", 12], ["東京女子", 13], ["OZ", 14], ["アイスリボン", 15], ["WAVE", 16], ["PURE-J", 17], ["マーベラス", 18], ["我闘雲舞", 19], ["アクトレスガールズ", 20],
-                                  ["その他", 21]], prompt: "団体を選択してください", class: "form-control" %>
-    <% end %>
+    <%= f.select :organization_id, Organization.pluck(:name, :id), {include_blank: true}, {data: { controller: 'slim', slim_target: 'field' } } %>
   </div>
   <div class="form-control mb-10">
     <%= f.label :title, class: 'font-bold' %>

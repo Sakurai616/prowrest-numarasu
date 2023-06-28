@@ -24,7 +24,6 @@ class ChatGroupsController < ApplicationController
 
   def create
     @chat_group = current_user.chat_groups.build(chat_group_params)
-    @chat_group.organization_id = params.dig(:chat_group, :organization, :organization_id)
     @chat_group.owner_id = current_user.id
     @chat_group.users << current_user
     if @chat_group.save
@@ -43,7 +42,6 @@ class ChatGroupsController < ApplicationController
   def edit; end
 
   def update
-    @chat_group.organization_id = params.dig(:chat_group, :organization, :organization_id)
     if @chat_group.update(chat_group_params)
       redirect_to chat_groups_path, success: t('defaults.message.updated', item: ChatGroup.model_name.human)
     else
@@ -73,7 +71,7 @@ class ChatGroupsController < ApplicationController
   private
 
   def chat_group_params
-    params.require(:chat_group).permit(:group_name, :group_description, :image, :image_cache)
+    params.require(:chat_group).permit(:group_name, :group_description, :image, :image_cache, :organization_id)
   end
 
   def ensure_correct_user

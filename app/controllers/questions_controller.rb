@@ -20,7 +20,6 @@ class QuestionsController < ApplicationController
 
   def create
     @question = current_user.questions.build(question_params)
-    @question.organization_id = params.dig(:question, :organization, :organization_id)
     if @question.save
       redirect_to questions_path, success: t('defaults.message.created', item: Question.model_name.human)
     else
@@ -37,7 +36,6 @@ class QuestionsController < ApplicationController
   def edit; end
 
   def update
-    @question.organization_id = params.dig(:question, :organization, :organization_id)
     if @question.update(update_question_params)
       redirect_to questions_path, success: t('defaults.message.updated', item: Question.model_name.human)
     else
@@ -64,11 +62,11 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:title, :image, :image_cache, :url, :sentence, :hint, choices_attributes: %i[body correct_answer]).merge(user_id: current_user.id)
+    params.require(:question).permit(:title, :image, :image_cache, :url, :sentence, :hint, :organization_id, choices_attributes: %i[body correct_answer]).merge(user_id: current_user.id)
   end
 
   def update_question_params
-    params.require(:question).permit(:title, :image, :image_cache, :url, :sentence, :hint, choices_attributes: %i[body correct_answer _destroy id]).merge(user_id: current_user.id)
+    params.require(:question).permit(:title, :image, :image_cache, :url, :sentence, :hint, :organization_id, choices_attributes: %i[body correct_answer _destroy id]).merge(user_id: current_user.id)
   end
 
   def search_question_params
