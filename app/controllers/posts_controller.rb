@@ -21,7 +21,6 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    @post.organization_id = params.dig(:post, :organization, :organization_id)
     if @post.save_with_tags(tag_names: params.dig(:post, :tag_names).split(',').uniq)
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
@@ -42,7 +41,6 @@ class PostsController < ApplicationController
 
   def update
     @post.assign_attributes(post_params)
-    @post.organization_id = params.dig(:post, :organization, :organization_id)
     if @post.save_with_tags(tag_names: params.dig(:post, :tag_names).split(',').uniq)
       redirect_to post_path(@post), success: t('defaults.message.updated', item: Post.model_name.human)
     else
@@ -70,7 +68,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :image_cache, :url, :title, :body)
+    params.require(:post).permit(:image, :image_cache, :url, :title, :body, :organization_id)
   end
 
   def set_post
