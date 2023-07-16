@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  skip_before_action :require_login, only: %i[index show search]
+  skip_before_action :require_login, only: %i[index show search like_rank]
   before_action :set_post, only: %i[edit update destroy]
 
   def index

@@ -8,8 +8,12 @@
     <% end %>
     <%= render partial: 'organizations/post_organization', locals: { post: post } %>
     <%= link_to post.title, post_path(post), class: 'text-accent hover:text-blue-500 md:text-xl font-bold md:m-auto' %>
-    <div class="text-right mr-12">
+    <div class="text-right mr-6">
       <%= render 'actions/like_button', { post: post } %>
+      <%= link_to post_path(post) do %>
+        <i class="fa-regular fa-comment fa-2x"></i>
+        <%= post.comments.count %>
+      <% end %>
     </div>
     <div class="pt-4 space-x-3">
       <%= render post.tags %>
