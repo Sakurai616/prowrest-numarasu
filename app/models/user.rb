@@ -20,10 +20,6 @@ class User < ApplicationRecord
 
   enum role: { general: 0, admin: 1 }
 
-  def own?(object)
-    id == object.user_id
-  end
-
   def like(post)
     like_posts << post
   end
