@@ -22,7 +22,10 @@
           </div>
         </div>
       <div class="flex justify-center pt-20">
-        <%= link_to (t 'defaults.profile_edit'), edit_profile_path, class: 'btn btn-secondary md:text-xl' %>
+        <div class="flex space-x-8">
+          <%= link_to (t 'defaults.profile_edit'), edit_profile_path, class: 'btn btn-secondary md:text-xl' %>
+          <%= link_to t('.my_posts'), my_posts_posts_path, class: "btn btn-accent md:text-xl" %>
+        </div>
       </div>
     </div>
   </div>

@@ -67,6 +67,7 @@ ja:
       title: "プロフィール"
       name: "ユーザーネーム"
       email: "メールアドレス"
+      my_posts: "自分の投稿一覧"
     edit:
       title: "プロフィール編集"
   user_sessions:
@@ -94,6 +95,10 @@ ja:
       search_result: "検索結果"
     like_rank:
       title: "いいね順"
+      no_result: "いいねした投稿がありません"
+    my_posts:
+      title: "自分の投稿一覧"
+      no_result: "まだ投稿していません"
   questions:
     index:
       title: "クイズ一覧"

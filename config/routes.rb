@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       get 'search'
       get 'organization_search'
       get 'like_rank'
+      get 'my_posts'
     end
   end
 
