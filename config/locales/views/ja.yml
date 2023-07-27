@@ -46,6 +46,7 @@ ja:
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
       delete_confirm: '削除しますか？'
+      logout_confirm: "ログアウトしますか？"
   views:
     pagination:
       first: "最初"
@@ -67,6 +68,9 @@ ja:
       title: "プロフィール"
       name: "ユーザーネーム"
       email: "メールアドレス"
+      my_posts: "自分の投稿一覧"
+      my_questions: "自分のクイズ一覧"
+      my_chat_groups: "自分のチャットグループ一覧"
     edit:
       title: "プロフィール編集"
   user_sessions:
@@ -94,6 +98,10 @@ ja:
       search_result: "検索結果"
     like_rank:
       title: "いいね順"
+      no_result: "いいねした投稿がありません"
+    my_posts:
+      title: "自分の投稿一覧"
+      no_result: "まだ投稿していません"
   questions:
     index:
       title: "クイズ一覧"
@@ -105,6 +113,9 @@ ja:
       title: "クイズ一覧"
       no_result: "検索結果がありません"
       search_result: "検索結果"
+    my_questions:
+      title: "自分のクイズ一覧"
+      no_result: "まだクイズを作成していません"
   question_answers:
     result:
       index: "クイズ一覧"
@@ -126,6 +137,9 @@ ja:
       title: "チャットグループ一覧"
       search_result: "検索結果"
       no_result: "検索結果がありません"
+    my_chat_groups:
+      title: "自分のチャットグループ一覧"
+      no_result: "まだチャットグループを作成していません"
   static_pages:
     term:
       title: "利用規約"

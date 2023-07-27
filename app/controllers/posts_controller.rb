@@ -65,6 +65,11 @@ class PostsController < ApplicationController
     @posts = Kaminari.paginate_array(posts).page(params[:page])
   end
 
+  def my_posts
+    my_posts = Post.where(user_id: current_user.id).includes(:user).order("created_at DESC")
+    @my_posts = Kaminari.paginate_array(my_posts).page(params[:page])
+  end
+
   private
 
   def post_params

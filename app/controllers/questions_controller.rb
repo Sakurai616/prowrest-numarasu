@@ -55,6 +55,11 @@ class QuestionsController < ApplicationController
     @organizations = Organization.all
   end
 
+  def my_questions
+    my_questions = Question.where(user_id: current_user.id).includes(:user).order("created_at DESC")
+    @my_questions = Kaminari.paginate_array(my_questions).page(params[:page])
+  end
+
   private
 
   def set_question

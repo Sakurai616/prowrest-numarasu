@@ -68,6 +68,11 @@ class ChatGroupsController < ApplicationController
     @organizations = Organization.all
   end
 
+  def my_chat_groups
+    my_chat_groups = ChatGroup.where(owner_id: current_user.id).order("created_at DESC")
+    @my_chat_groups = Kaminari.paginate_array(my_chat_groups).page(params[:page])
+  end
+
   private
 
   def chat_group_params

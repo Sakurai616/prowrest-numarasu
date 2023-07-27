@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       get 'search'
       get 'organization_search'
       get 'like_rank'
+      get 'my_posts'
     end
   end
 
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
   resources :questions do
     collection do 
       get 'search'
+      get 'my_questions'
     end
     get 'result', to: 'question_answers#result'
   end
@@ -38,6 +40,7 @@ Rails.application.routes.draw do
     delete 'leave', to: 'chat_groups#leave'
     collection do
       get 'search'
+      get 'my_chat_groups'
     end
   end
   mount ActionCable.server => '/cable'
