@@ -46,6 +46,7 @@ ja:
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
       delete_confirm: '削除しますか？'
+      logout_confirm: "ログアウトしますか？"
   views:
     pagination:
       first: "最初"
@@ -69,6 +70,7 @@ ja:
       email: "メールアドレス"
       my_posts: "自分の投稿一覧"
       my_questions: "自分のクイズ一覧"
+      my_chat_groups: "自分のチャットグループ一覧"
     edit:
       title: "プロフィール編集"
   user_sessions:
@@ -135,6 +137,9 @@ ja:
       title: "チャットグループ一覧"
       search_result: "検索結果"
       no_result: "検索結果がありません"
+    my_chat_groups:
+      title: "自分のチャットグループ一覧"
+      no_result: "まだチャットグループを作成していません"
   static_pages:
     term:
       title: "利用規約"

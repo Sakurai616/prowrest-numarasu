@@ -40,6 +40,7 @@ Rails.application.routes.draw do
     delete 'leave', to: 'chat_groups#leave'
     collection do
       get 'search'
+      get 'my_chat_groups'
     end
   end
   mount ActionCable.server => '/cable'
