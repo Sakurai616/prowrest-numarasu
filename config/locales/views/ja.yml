@@ -68,6 +68,7 @@ ja:
       name: "ユーザーネーム"
       email: "メールアドレス"
       my_posts: "自分の投稿一覧"
+      my_questions: "自分のクイズ一覧"
     edit:
       title: "プロフィール編集"
   user_sessions:
@@ -110,6 +111,9 @@ ja:
       title: "クイズ一覧"
       no_result: "検索結果がありません"
       search_result: "検索結果"
+    my_questions:
+      title: "自分のクイズ一覧"
+      no_result: "まだクイズを作成していません"
   question_answers:
     result:
       index: "クイズ一覧"

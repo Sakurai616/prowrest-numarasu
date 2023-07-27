@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   resources :questions do
     collection do 
       get 'search'
+      get 'my_questions'
     end
     get 'result', to: 'question_answers#result'
   end
