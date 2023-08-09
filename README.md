@@ -123,7 +123,7 @@
 **インフラ**
 <br>
 - Heroku
-- PostgresSQL
+- PostgreSQL
 
 **その他**
 <br>
