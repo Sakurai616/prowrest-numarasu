@@ -24,7 +24,9 @@
           <%= submit_tag "絞り込み", class: "btn btn-primary" %>
           <div class="flex flex-row-reverse">
             <div class="flex space-x-6">
-              <button><%= link_to t('defaults.likes'), likes_users_path, class: "btn btn-secondary" %>
+              <% if current_user.present? %>
+                <button><%= link_to t('defaults.likes'), likes_users_path, class: "btn btn-secondary" %>
+              <% end %>
               <button><%= link_to t('.like_rank'), like_rank_posts_path, class: "btn btn-accent font-bold" %></button>
             </div>
           </div>

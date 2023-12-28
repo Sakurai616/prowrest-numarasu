@@ -43,3 +43,5 @@
 
 # Ignore sitemap.xml
 public/sitemap.xml.gz
+
+.DS_Store
